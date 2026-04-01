@@ -54,8 +54,8 @@ section{padding:100px 0}
 .navbar.scrolled{background:rgba(250,247,242,.97);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 2px 30px rgba(0,0,0,0.06)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;justify-content:center;transition:all .3s}
-.nav-logo-img{height:40px;width:40px;border-radius:50%;object-fit:cover;margin-right:10px;transition:all .3s}
-.navbar.scrolled .nav-logo-img{height:36px;width:36px}
+.nav-logo-letter{height:38px;object-fit:contain;transition:all .3s}
+.navbar.scrolled .nav-logo-letter{height:34px}
 .logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;letter-spacing:6px;color:var(--white);transition:color .3s}
 .navbar.scrolled .logo-text{color:var(--navy)}
 .nav-links{display:flex;gap:32px;align-items:center}
@@ -338,8 +338,7 @@ section{padding:100px 0}
   <div class="container">
     <a href="#" class="nav-logo-link" id="navLogoLink">
       <div class="nav-logo" id="navLogo">
-        <img src="images/logo-round.jpeg" alt="Sukoon Logo" class="nav-logo-img">
-        <span class="logo-text">SUKOON</span>
+        <img src="images/logo-letter.jpeg" alt="Sukoon" class="nav-logo-letter">
       </div>
     </a>
     <div class="nav-links">
@@ -393,10 +392,9 @@ section{padding:100px 0}
 <section class="hero" id="hero">
   <div class="hero-option active" id="heroCarousel">
     <div class="hero-carousel" id="carouselSlider">
-      <div class="slide active"><img src="images/logo-letter.jpeg" alt="Sukoon Logo" style="object-fit:contain;background:#1e3a5f"></div>
-      <div class="slide"><img src="images/evil-eye-ribbon.jpg" alt="Sukoon Evil Eye Collection"></div>
+      <div class="slide active"><img src="images/evil-eye-ribbon.jpg" alt="Sukoon Evil Eye Collection"></div>
       <div class="slide"><img src="images/hero-fragrance-bars.jpg" alt="Sukoon Fragrance Bars Collection"></div>
-      <div class="slide"><img src="images/7.jpeg" alt="Sukoon Iced Drinks Collection"></div>
+      <div class="slide"><img src="images/hero-diwali-candles.jpg" alt="Sukoon Diwali Candles Collection"></div>
       <div class="slide"><img src="images/14.jpeg" alt="Sukoon Rose Bouquet Candle"></div>
     </div>
     <div class="carousel-indicators" id="carouselIndicators">
@@ -404,7 +402,6 @@ section{padding:100px 0}
       <button onclick="goToSlide(1)"></button>
       <button onclick="goToSlide(2)"></button>
       <button onclick="goToSlide(3)"></button>
-      <button onclick="goToSlide(4)"></button>
     </div>
   </div>
   <div class="hero-overlay"></div>
