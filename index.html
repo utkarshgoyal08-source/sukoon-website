@@ -54,8 +54,8 @@ section{padding:100px 0}
 .navbar.scrolled{background:rgba(250,247,242,.97);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 2px 30px rgba(0,0,0,0.06)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;justify-content:center;transition:all .3s}
-.nav-logo-letter{width:200px;height:46px;object-fit:cover;object-position:center 42%;transition:all .3s}
-.navbar.scrolled .nav-logo-letter{width:180px;height:40px}
+.nav-logo-letter{height:44px;width:auto;object-fit:contain;border-radius:4px;transition:all .3s}
+.navbar.scrolled .nav-logo-letter{height:38px}
 .logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;letter-spacing:6px;color:var(--white);transition:color .3s}
 .navbar.scrolled .logo-text{color:var(--navy)}
 .nav-links{display:flex;gap:32px;align-items:center}
@@ -338,7 +338,7 @@ section{padding:100px 0}
   <div class="container">
     <a href="#" class="nav-logo-link" id="navLogoLink">
       <div class="nav-logo" id="navLogo">
-        <img src="images/logo-letter.jpeg" alt="Sukoon" class="nav-logo-letter">
+        <img src="images/logo-letter-wide.jpeg" alt="Sukoon" class="nav-logo-letter">
       </div>
     </a>
     <div class="nav-links">
