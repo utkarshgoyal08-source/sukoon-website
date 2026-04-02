@@ -54,8 +54,8 @@ section{padding:100px 0}
 .navbar.scrolled{background:rgba(250,247,242,.97);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 2px 30px rgba(0,0,0,0.06)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;justify-content:center;transition:all .3s}
-.nav-logo-letter{height:44px;width:auto;object-fit:contain;border-radius:4px;transition:all .3s}
-.navbar.scrolled .nav-logo-letter{height:38px}
+.nav-logo-letter{height:48px;width:auto;object-fit:contain;transition:all .3s;filter:brightness(0) invert(1)}
+.navbar.scrolled .nav-logo-letter{height:42px;filter:none}
 .logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;letter-spacing:6px;color:var(--white);transition:color .3s}
 .navbar.scrolled .logo-text{color:var(--navy)}
 .nav-links{display:flex;gap:32px;align-items:center}
@@ -338,11 +338,11 @@ section{padding:100px 0}
   <div class="container">
     <a href="#" class="nav-logo-link" id="navLogoLink">
       <div class="nav-logo" id="navLogo">
-        <img src="images/logo-letter-wide.jpeg" alt="Sukoon" class="nav-logo-letter">
+        <img src="images/logo-nav.png" alt="Sukoon" class="nav-logo-letter">
       </div>
     </a>
     <div class="nav-links">
-      <a href="#about">Our Story</a>
+      <a href="our-story.html">Our Story</a>
       <div class="nav-dropdown">
         <a href="#products" class="nav-dropdown-trigger">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
@@ -356,10 +356,10 @@ section{padding:100px 0}
           <a href="wax-melts.html">Wax Melts</a>
         </div>
       </div>
-      <a href="#events">Events</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+      <a href="events.html">Events</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
       <a href="https://wa.me/917264011700" target="_blank" class="nav-cta">Order Now</a>
     </div>
     <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
@@ -369,7 +369,7 @@ section{padding:100px 0}
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="toggleMobileMenu()">Our Story</a>
+  <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">
     <a href="container-candles.html">Container Candles</a>
@@ -381,10 +381,10 @@ section{padding:100px 0}
     <a href="rakhis.html">Rakhis</a>
     <a href="wax-melts.html">Wax Melts</a>
   </div>
-  <a href="#events" onclick="toggleMobileMenu()">Events</a>
-  <a href="#services" onclick="toggleMobileMenu()">Services</a>
-  <a href="#gallery" onclick="toggleMobileMenu()">Gallery</a>
-  <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+  <a href="events.html" onclick="toggleMobileMenu()">Events</a>
+  <a href="services.html" onclick="toggleMobileMenu()">Services</a>
+  <a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a>
+  <a href="contact.html" onclick="toggleMobileMenu()">Contact</a>
   <a href="https://wa.me/917264011700" target="_blank" class="btn btn-primary" onclick="toggleMobileMenu()">Order Now</a>
 </div>
 
@@ -411,7 +411,7 @@ section{padding:100px 0}
     <p class="hero-desc">Artisan scented candles crafted with love, bringing warmth, tranquility, and elegance to every space.</p>
     <div class="hero-buttons">
       <a href="#products" class="btn btn-primary">Explore Collection</a>
-      <a href="#about" class="btn btn-outline">Our Story</a>
+      <a href="our-story.html" class="btn btn-outline">Our Story</a>
     </div>
   </div>
   <div class="scroll-indicator" onclick="document.getElementById('trust').scrollIntoView({behavior:'smooth'})">
@@ -449,7 +449,7 @@ section{padding:100px 0}
       </div>
       <div class="about-text">
         <p class="section-label reveal">Our Story</p>
-        <h2 class="section-title reveal reveal-delay-1">Two Friends,<br>One Passion</h2>
+        <h2 class="section-title reveal reveal-delay-1" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Two Friends, One Passion</h2>
         <blockquote class="about-quote reveal reveal-delay-2">
           At Sukoon, we pour our passion for artistry and craftsmanship into each candle, meticulously crafted to bring a touch of calm and elegance into your home.
         </blockquote>
@@ -751,9 +751,9 @@ section{padding:100px 0}
           <a href="mailto:sukoonghar98@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
         </div>
       </div>
-      <div><h4>Quick Links</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#products">Products</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Quick Links</h4><ul><li><a href="our-story.html">Our Story</a></li><li><a href="#products">Products</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Collections</h4><ul><li><a href="container-candles.html">Container Candles</a></li><li><a href="pillar-candles.html">Pillar Candles</a></li><li><a href="diwali.html">Diwali Collection</a></li><li><a href="fragrance-bars.html">Fragrance Bars</a></li><li><a href="flower-bouquet.html">Flower Bouquet</a></li><li><a href="customization.html">Customization</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="#services">Corporate Gifting</a></li><li><a href="#services">Festive Gifting</a></li><li><a href="#services">Candle Workshops</a></li><li><a href="#services">Custom Orders</a></li><li><a href="https://wa.me/917264011700" target="_blank">Order via WhatsApp</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="services.html">Corporate Gifting</a></li><li><a href="services.html">Festive Gifting</a></li><li><a href="services.html">Candle Workshops</a></li><li><a href="services.html">Custom Orders</a></li><li><a href="https://wa.me/917264011700" target="_blank">Order via WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 Sukoon. All Rights Reserved. Handcrafted with love in India.</p></div>
   </div>

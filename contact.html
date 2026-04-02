@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUKOON | Flower Bouquet</title>
-<meta name="description" content="Sukoon Flower Bouquet - Handcrafted wax flower bouquets for your home and gifting.">
+<title>SUKOON | Contact</title>
+<meta name="description" content="Contact Sukoon - Get in touch for custom orders, corporate gifting, workshops, or general enquiries. WhatsApp, email, or Instagram.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,11 @@ h1,h2,h3,h4,h5{font-family:var(--font-serif);font-weight:500;line-height:1.25}
 .container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px}
 section{padding:100px 0}
 @media(max-width:768px){section{padding:70px 0}.container{padding:0 18px}}
+.section-label{font-family:var(--font-sans);font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.section-title{font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy);margin-bottom:16px}
+.section-subtitle{font-size:1.15rem;color:var(--warm-brown);max-width:600px;line-height:1.8;font-weight:300}
+.section-header{text-align:center;margin-bottom:60px}
+.section-header .section-subtitle{margin:0 auto}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
@@ -38,14 +43,14 @@ section{padding:100px 0}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:50px;font-family:var(--font-sans);font-size:.85rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .4s;cursor:pointer;border:none}
 .btn-primary{background:var(--gold);color:var(--white)}
 .btn-primary:hover{background:var(--warm-brown);transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,168,76,.3)}
+
+/* NAV */
 .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:18px 0;transition:all .4s cubic-bezier(.4,0,.2,1)}
 .navbar.scrolled{background:rgba(250,247,242,.97);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 2px 30px rgba(0,0,0,0.06)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;justify-content:center;transition:all .3s}
 .nav-logo-letter{height:48px;width:auto;object-fit:contain;transition:all .3s;filter:brightness(0) invert(1)}
 .navbar.scrolled .nav-logo-letter{height:42px;filter:none}
-.logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;letter-spacing:6px;color:var(--white);transition:color .3s}
-.navbar.scrolled .logo-text{color:var(--navy)}
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a,.nav-dropdown-trigger{font-family:var(--font-sans);font-size:.85rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);transition:all .3s;position:relative;cursor:pointer;background:none;border:none;padding:0}
 .navbar.scrolled .nav-links a,.navbar.scrolled .nav-dropdown-trigger{color:var(--navy)}
@@ -83,6 +88,43 @@ section{padding:100px 0}
 .mobile-products-toggle svg{width:16px;height:16px;stroke:var(--cream);fill:none;transition:transform .3s}
 .mobile-products-toggle.open svg{transform:rotate(180deg)}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+
+/* CAT HERO */
+.cat-hero{position:relative;height:40vh;min-height:300px;overflow:hidden;display:flex;align-items:flex-end}
+.cat-hero-bg{position:absolute;inset:0}
+.cat-hero-bg img{width:100%;height:100%;object-fit:cover}
+.cat-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,62,80,.3) 0%,rgba(44,62,80,.7) 100%)}
+.cat-hero-content{position:relative;z-index:2;padding:40px 0;width:100%}
+.cat-hero .breadcrumb{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--light-gold);margin-bottom:12px}
+.cat-hero .breadcrumb a{color:rgba(255,255,255,.7);transition:color .3s}
+.cat-hero .breadcrumb a:hover{color:var(--gold)}
+.cat-hero h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);font-weight:500}
+.cat-hero p{color:rgba(255,255,255,.8);font-size:1rem;margin-top:8px;max-width:500px}
+@media(max-width:768px){.cat-hero{height:35vh;min-height:250px}}
+
+/* CONTACT */
+.contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-info h3{font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);margin-bottom:20px}
+.contact-info p{color:var(--warm-brown);line-height:1.8;margin-bottom:28px}
+.contact-links{display:flex;flex-direction:column;gap:16px}
+.contact-link{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--cream);border-radius:var(--radius-sm);transition:all .3s}
+.contact-link:hover{background:var(--blush);transform:translateX(6px)}
+.contact-link-icon{width:44px;height:44px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-link-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none}
+.contact-link-text{font-size:.9rem;color:var(--navy);font-weight:500}
+.contact-link-text span{display:block;font-size:.78rem;color:var(--warm-brown);font-weight:400}
+.contact-form{background:var(--cream);padding:40px;border-radius:var(--radius-lg)}
+.contact-form h3{font-family:var(--font-serif);font-size:1.3rem;color:var(--navy);margin-bottom:24px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 18px;border:1.5px solid #e0ddd5;border-radius:var(--radius-sm);font-family:var(--font-sans);font-size:.9rem;background:var(--white);transition:border .3s;color:var(--charcoal)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold)}
+.form-group textarea{height:120px;resize:vertical}
+.contact-form .btn{width:100%;justify-content:center}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+
+/* FOOTER */
 .footer{background:var(--navy);color:var(--cream);padding:60px 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .footer-brand p{color:rgba(250,247,242,.6);font-size:.88rem;line-height:1.8;margin-top:16px}
@@ -98,76 +140,15 @@ section{padding:100px 0}
 .footer-social a svg{width:18px;height:18px;fill:var(--cream)}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* WHATSAPP FLOAT */
 .whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;cursor:pointer;animation:float 3s infinite}
 .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
 .whatsapp-float svg{width:30px;height:30px;fill:white}
-.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;cursor:pointer}
-.lightbox.active{display:flex}
-.lightbox img{max-width:90%;max-height:85vh;object-fit:contain;border-radius:var(--radius-sm);animation:scaleIn .3s ease}
-.lightbox-close{position:absolute;top:20px;right:28px;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:white;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:2001}
-.lightbox-close:hover{background:rgba(255,255,255,.1)}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:2001}
-.lb-nav:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6)}
-.lb-prev{left:20px}.lb-next{right:20px}
-.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:.8rem;letter-spacing:2px}
-@media(max-width:600px){.lb-nav{width:36px;height:36px}.lb-prev{left:10px}.lb-next{right:10px}}
 .back-to-top{position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
 .back-to-top.visible{opacity:1;transform:translateY(0)}
 .back-to-top:hover{background:var(--gold)}
 .back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none}
-.cat-hero{position:relative;height:40vh;min-height:300px;overflow:hidden;display:flex;align-items:flex-end}
-.cat-hero-bg{position:absolute;inset:0}
-.cat-hero-bg img{width:100%;height:100%;object-fit:cover}
-.cat-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,62,80,.3) 0%,rgba(44,62,80,.7) 100%)}
-.cat-hero-content{position:relative;z-index:2;padding:40px 0;width:100%}
-.cat-hero .breadcrumb{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--light-gold);margin-bottom:12px}
-.cat-hero .breadcrumb a{color:rgba(255,255,255,.7);transition:color .3s}
-.cat-hero .breadcrumb a:hover{color:var(--gold)}
-.cat-hero h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);font-weight:500}
-.cat-hero p{color:rgba(255,255,255,.8);font-size:1rem;margin-top:8px;max-width:500px}
-.btn-enquire{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:50px;font-family:var(--font-sans);font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border:1.5px solid var(--gold);transition:all .3s;white-space:nowrap}
-.btn-enquire:hover{background:var(--gold);color:var(--white)}
-.cta-banner{background:var(--navy);padding:80px 0;text-align:center}
-.cta-banner h2{font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.5rem);color:var(--white);margin-bottom:12px;font-weight:400}
-.cta-banner p{color:rgba(255,255,255,.7);margin-bottom:32px;font-size:1rem}
-
-/* PRODUCT CARDS GRID */
-.products-section{padding:60px 0}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
-
-/* PRODUCT CARD WITH CAROUSEL */
-.product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .4s cubic-bezier(.25,.46,.45,.94)}
-.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-.card-carousel{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--blush);cursor:pointer}
-.card-carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
-.card-carousel img.active{opacity:1}
-.card-carousel:hover .carousel-arrow{opacity:1}
-.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.carousel-arrow:hover{background:var(--white)}
-.carousel-arrow svg{width:16px;height:16px;stroke:var(--navy);fill:none}
-.carousel-prev{left:10px}
-.carousel-next{right:10px}
-.carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
-.carousel-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);border:none;cursor:pointer;padding:0;transition:all .3s}
-.carousel-dot.active{background:var(--white);transform:scale(1.2)}
-.card-body{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.card-body h3{font-family:var(--font-serif);font-size:1.15rem;color:var(--navy);font-weight:500}
-.card-body span{font-size:.72rem;color:var(--warm-brown);letter-spacing:.5px}
-
-@media(max-width:768px){
-.cat-hero{height:35vh;min-height:250px}
-.products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-.card-body{padding:14px 16px}
-.card-body h3{font-size:1rem}
-.carousel-arrow{opacity:1;width:30px;height:30px}
-.carousel-arrow svg{width:14px;height:14px}
-}
-@media(max-width:480px){
-.products-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-.card-body{padding:12px 14px;flex-direction:column;align-items:flex-start;gap:8px}
-.card-body h3{font-size:.92rem}
-.product-card{border-radius:var(--radius-sm)}
-}
 </style>
 </head>
 <body>
@@ -220,40 +201,57 @@ section{padding:100px 0}
 
 <!-- HERO -->
 <section class="cat-hero">
-  <div class="cat-hero-bg"><img src="images/products/flower-bouquet/1.jpg" alt="Flower Bouquet"></div>
+  <div class="cat-hero-bg"><img src="images/hero-diwali-candles.jpg" alt="Contact Sukoon"></div>
   <div class="cat-hero-overlay"></div>
   <div class="cat-hero-content">
     <div class="container">
-      <p class="breadcrumb"><a href="index.html">Home</a> &mdash; Flower Bouquet</p>
-      <h1>Flower Bouquet</h1>
-      <p>Handcrafted wax flower bouquets</p>
+      <p class="breadcrumb"><a href="index.html">Home</a> &mdash; Contact</p>
+      <h1>Contact Us</h1>
+      <p>Have a question or want to place an order? We'd love to hear from you</p>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products-section">
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
   <div class="container">
-    <div class="products-grid">
-
-      <div class="product-card reveal" data-images='["images/products/flower-bouquet/1.jpg","images/products/flower-bouquet/2.jpg","images/products/flower-bouquet/3.jpg","images/products/flower-bouquet/4.jpg","images/products/flower-bouquet/5.jpg"]'>
-        <div class="card-carousel"></div>
-        <div class="card-body">
-          <div><h3>Wax Bouquets</h3></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Wax%20Flower%20Bouquets" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="section-header">
+      <p class="section-label reveal">Get in Touch</p>
+      <h2 class="section-title reveal reveal-delay-1">Let's Create Something Beautiful</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Have a question, custom order request, or just want to say hello? We'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Reach Out to Us</h3>
+        <p>Whether you're looking for a special gift, planning a festive celebration, or want to bring warmth to your home, we're here to help.</p>
+        <div class="contact-links">
+          <a href="https://wa.me/917264011700" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+            <div class="contact-link-text">WhatsApp<span>+91 72640 11700</span></div>
+          </a>
+          <a href="mailto:sukoonghar98@gmail.com" class="contact-link">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="contact-link-text">Email Us<span>sukoonghar98@gmail.com</span></div>
+          </a>
+          <a href="https://www.instagram.com/s.u.k.o.o.n/" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div class="contact-link-text">Follow Us<span>@s.u.k.o.o.n</span></div>
+          </a>
         </div>
       </div>
-
+      <div class="contact-form reveal reveal-delay-2">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm" onsubmit="handleContactForm(event)">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Enter your name" required></div>
+          <div class="form-group"><label>Email / Phone</label><input type="text" placeholder="Email or WhatsApp number" required></div>
+          <div class="form-group"><label>Interested In</label>
+            <select><option value="">Select a service</option><option>Custom Candle Order</option><option>Corporate Gifting</option><option>Festive Gifting</option><option>Candle Workshop</option><option>Bulk Order</option><option>General Enquiry</option></select>
+          </div>
+          <div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about your requirements..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner">
-  <div class="container">
-    <h2 class="reveal">Love Our Flower Bouquets?</h2>
-    <p class="reveal reveal-delay-1">Get in touch to order a beautiful wax flower bouquet for yourself or as a gift.</p>
-    <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Flower%20Bouquets" target="_blank" class="btn btn-primary reveal reveal-delay-2">Order on WhatsApp</a>
   </div>
 </section>
 
@@ -287,23 +285,11 @@ section{padding:100px 0}
   <svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  <button class="lb-nav lb-prev" id="lbPrev" onclick="lbPrev(event)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <img src="" alt="Product preview" id="lightboxImg">
-  <button class="lb-nav lb-next" id="lbNext" onclick="lbNext(event)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-  <div class="lb-counter" id="lbCounter"></div>
-</div>
-
 <script>
-// Scroll & Back to top
 window.addEventListener('scroll',()=>{
   document.getElementById('navbar').classList.add('scrolled');
   document.getElementById('backToTop').classList.toggle('visible',window.scrollY>500);
 });
-
-// Mobile menu
 function toggleMobileMenu(){
   document.getElementById('hamburger').classList.toggle('active');
   const m=document.getElementById('mobileMenu');
@@ -314,8 +300,6 @@ function toggleMobileProducts(el){
   el.classList.toggle('open');
   document.getElementById('mobileSubmenu').classList.toggle('active');
 }
-
-// Reveal animations
 if('IntersectionObserver' in window){
   const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.05});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
@@ -324,96 +308,15 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 }
 
-// Initialize product card carousels
-document.querySelectorAll('.product-card').forEach(card=>{
-  const images=JSON.parse(card.dataset.images);
-  const carousel=card.querySelector('.card-carousel');
-  let currentIndex=0;
-
-  images.forEach((src,i)=>{
-    const img=document.createElement('img');
-    img.src=src;
-    img.alt=card.querySelector('h3').textContent;
-    img.loading='lazy';
-    if(i===0) img.classList.add('active');
-    carousel.appendChild(img);
-  });
-
-  if(images.length>1){
-    const prev=document.createElement('button');
-    prev.className='carousel-arrow carousel-prev';
-    prev.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>';
-    prev.onclick=e=>{e.stopPropagation();goTo((currentIndex-1+images.length)%images.length)};
-    carousel.appendChild(prev);
-
-    const next=document.createElement('button');
-    next.className='carousel-arrow carousel-next';
-    next.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>';
-    next.onclick=e=>{e.stopPropagation();goTo((currentIndex+1)%images.length)};
-    carousel.appendChild(next);
-
-    const dotsContainer=document.createElement('div');
-    dotsContainer.className='carousel-dots';
-    images.forEach((_,i)=>{
-      const dot=document.createElement('button');
-      dot.className='carousel-dot'+(i===0?' active':'');
-      dot.onclick=e=>{e.stopPropagation();goTo(i)};
-      dotsContainer.appendChild(dot);
-    });
-    carousel.appendChild(dotsContainer);
-  }
-
-  function goTo(idx){
-    carousel.querySelectorAll('img')[currentIndex].classList.remove('active');
-    carousel.querySelectorAll('.carousel-dot')[currentIndex]?.classList.remove('active');
-    currentIndex=idx;
-    carousel.querySelectorAll('img')[currentIndex].classList.add('active');
-    carousel.querySelectorAll('.carousel-dot')[currentIndex]?.classList.add('active');
-  }
-
-  let touchStartX=0;
-  carousel.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
-  carousel.addEventListener('touchend',e=>{
-    const diff=touchStartX-e.changedTouches[0].clientX;
-    if(Math.abs(diff)>40){
-      if(diff>0) goTo((currentIndex+1)%images.length);
-      else goTo((currentIndex-1+images.length)%images.length);
-    }
-  });
-
-  carousel.addEventListener('click',()=>{
-    openLightbox(images,currentIndex);
-  });
-});
-
-// Lightbox
-let lightboxImages=[];let lightboxIndex=0;
-function openLightbox(images,startIdx){
-  lightboxImages=images;
-  lightboxIndex=startIdx||0;
-  showLightboxImage();
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
+// Contact form -> WhatsApp
+function handleContactForm(e){
+  e.preventDefault();const f=e.target;
+  const name=f.querySelector('input[type="text"]').value;
+  const interest=f.querySelector('select').value;
+  const message=f.querySelector('textarea').value;
+  window.open('https://wa.me/917264011700?text='+encodeURIComponent('Hi! I\'m '+name+'. I\'m interested in '+(interest||'your candles')+'. '+message),'_blank');
+  f.reset();
 }
-function showLightboxImage(){
-  document.getElementById('lightboxImg').src=lightboxImages[lightboxIndex];
-  document.getElementById('lbCounter').textContent=(lightboxIndex+1)+' / '+lightboxImages.length;
-  document.getElementById('lbPrev').style.display=lightboxImages.length>1?'flex':'none';
-  document.getElementById('lbNext').style.display=lightboxImages.length>1?'flex':'none';
-}
-function closeLightbox(e){
-  if(e&&(e.target.classList.contains('lb-nav')||e.target.closest('.lb-nav')))return;
-  document.getElementById('lightbox').classList.remove('active');
-  document.body.style.overflow='';
-}
-function lbPrev(e){e.stopPropagation();lightboxIndex=(lightboxIndex-1+lightboxImages.length)%lightboxImages.length;showLightboxImage()}
-function lbNext(e){e.stopPropagation();lightboxIndex=(lightboxIndex+1)%lightboxImages.length;showLightboxImage()}
-document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lightbox').classList.contains('active'))return;
-  if(e.key==='Escape')closeLightbox();
-  if(e.key==='ArrowLeft')lbPrev(e);
-  if(e.key==='ArrowRight')lbNext(e);
-});
 </script>
 </body>
 </html>

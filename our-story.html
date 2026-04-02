@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUKOON | Flower Bouquet</title>
-<meta name="description" content="Sukoon Flower Bouquet - Handcrafted wax flower bouquets for your home and gifting.">
+<title>SUKOON | Our Story</title>
+<meta name="description" content="The story behind Sukoon - Two friends, one passion. Hand-poured luxury scented candles crafted with love in India by Pallak & Sakshi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,11 @@ h1,h2,h3,h4,h5{font-family:var(--font-serif);font-weight:500;line-height:1.25}
 .container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px}
 section{padding:100px 0}
 @media(max-width:768px){section{padding:70px 0}.container{padding:0 18px}}
+.section-label{font-family:var(--font-sans);font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.section-title{font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy);margin-bottom:16px}
+.section-subtitle{font-size:1.15rem;color:var(--warm-brown);max-width:600px;line-height:1.8;font-weight:300}
+.section-header{text-align:center;margin-bottom:60px}
+.section-header .section-subtitle{margin:0 auto}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
@@ -38,14 +43,14 @@ section{padding:100px 0}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:50px;font-family:var(--font-sans);font-size:.85rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .4s;cursor:pointer;border:none}
 .btn-primary{background:var(--gold);color:var(--white)}
 .btn-primary:hover{background:var(--warm-brown);transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,168,76,.3)}
+
+/* NAV */
 .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:18px 0;transition:all .4s cubic-bezier(.4,0,.2,1)}
 .navbar.scrolled{background:rgba(250,247,242,.97);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 2px 30px rgba(0,0,0,0.06)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;justify-content:center;transition:all .3s}
 .nav-logo-letter{height:48px;width:auto;object-fit:contain;transition:all .3s;filter:brightness(0) invert(1)}
 .navbar.scrolled .nav-logo-letter{height:42px;filter:none}
-.logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;letter-spacing:6px;color:var(--white);transition:color .3s}
-.navbar.scrolled .logo-text{color:var(--navy)}
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a,.nav-dropdown-trigger{font-family:var(--font-sans);font-size:.85rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);transition:all .3s;position:relative;cursor:pointer;background:none;border:none;padding:0}
 .navbar.scrolled .nav-links a,.navbar.scrolled .nav-dropdown-trigger{color:var(--navy)}
@@ -83,6 +88,48 @@ section{padding:100px 0}
 .mobile-products-toggle svg{width:16px;height:16px;stroke:var(--cream);fill:none;transition:transform .3s}
 .mobile-products-toggle.open svg{transform:rotate(180deg)}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+
+/* CAT HERO */
+.cat-hero{position:relative;height:40vh;min-height:300px;overflow:hidden;display:flex;align-items:flex-end}
+.cat-hero-bg{position:absolute;inset:0}
+.cat-hero-bg img{width:100%;height:100%;object-fit:cover}
+.cat-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,62,80,.3) 0%,rgba(44,62,80,.7) 100%)}
+.cat-hero-content{position:relative;z-index:2;padding:40px 0;width:100%}
+.cat-hero .breadcrumb{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--light-gold);margin-bottom:12px}
+.cat-hero .breadcrumb a{color:rgba(255,255,255,.7);transition:color .3s}
+.cat-hero .breadcrumb a:hover{color:var(--gold)}
+.cat-hero h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);font-weight:500}
+.cat-hero p{color:rgba(255,255,255,.8);font-size:1rem;margin-top:8px;max-width:500px}
+@media(max-width:768px){.cat-hero{height:35vh;min-height:250px}}
+
+/* ABOUT */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-images{position:relative;height:auto}
+.about-img-main{width:100%;max-width:480px;height:auto;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);position:relative;z-index:2}
+.about-accent{position:absolute;top:-20px;right:30%;width:120px;height:120px;border-radius:50%;background:var(--blush);z-index:1}
+.about-text .section-label,.about-text .section-title{text-align:left}
+.about-quote{font-family:var(--font-serif);font-size:1.25rem;color:var(--navy);line-height:1.9;margin-bottom:24px;font-style:italic;padding-left:24px;border-left:3px solid var(--gold)}
+.about-desc{color:var(--warm-brown);line-height:1.9;margin-bottom:32px;font-size:1.05rem}
+.founders{display:flex;gap:24px;margin-top:32px}
+.founder{display:flex;align-items:center;gap:12px}
+.founder-avatar{width:48px;height:48px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.1rem;color:var(--navy);font-weight:600}
+.founder-info{font-size:.85rem}
+.founder-info strong{display:block;color:var(--navy);font-weight:600}
+.founder-info span{color:var(--warm-brown);font-size:.78rem}
+@media(max-width:900px){
+.about-grid{grid-template-columns:1fr;gap:32px;text-align:center}
+.about-images{height:auto;max-width:100%;margin:0 auto;order:2}
+.about-text{order:1;text-align:center;display:flex;flex-direction:column;align-items:center}
+.about-img-main{width:100%;max-width:100%;height:auto;border-radius:var(--radius)}
+.about-text .section-label,.about-text .section-title{text-align:center;width:100%}
+.about-quote{border-left:none;padding-left:0;text-align:center;font-size:1rem;width:100%}
+.about-desc{text-align:center;font-size:.9rem;width:100%}
+.founder-info{font-size:.8rem}
+.about-accent{display:none}
+}
+
+/* FOOTER */
 .footer{background:var(--navy);color:var(--cream);padding:60px 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
 .footer-brand p{color:rgba(250,247,242,.6);font-size:.88rem;line-height:1.8;margin-top:16px}
@@ -98,76 +145,17 @@ section{padding:100px 0}
 .footer-social a svg{width:18px;height:18px;fill:var(--cream)}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* WHATSAPP FLOAT */
 .whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;cursor:pointer;animation:float 3s infinite}
 .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
 .whatsapp-float svg{width:30px;height:30px;fill:white}
-.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;cursor:pointer}
-.lightbox.active{display:flex}
-.lightbox img{max-width:90%;max-height:85vh;object-fit:contain;border-radius:var(--radius-sm);animation:scaleIn .3s ease}
-.lightbox-close{position:absolute;top:20px;right:28px;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:white;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:2001}
-.lightbox-close:hover{background:rgba(255,255,255,.1)}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:2001}
-.lb-nav:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6)}
-.lb-prev{left:20px}.lb-next{right:20px}
-.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:.8rem;letter-spacing:2px}
-@media(max-width:600px){.lb-nav{width:36px;height:36px}.lb-prev{left:10px}.lb-next{right:10px}}
+
+/* BACK TO TOP */
 .back-to-top{position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
 .back-to-top.visible{opacity:1;transform:translateY(0)}
 .back-to-top:hover{background:var(--gold)}
 .back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none}
-.cat-hero{position:relative;height:40vh;min-height:300px;overflow:hidden;display:flex;align-items:flex-end}
-.cat-hero-bg{position:absolute;inset:0}
-.cat-hero-bg img{width:100%;height:100%;object-fit:cover}
-.cat-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,62,80,.3) 0%,rgba(44,62,80,.7) 100%)}
-.cat-hero-content{position:relative;z-index:2;padding:40px 0;width:100%}
-.cat-hero .breadcrumb{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--light-gold);margin-bottom:12px}
-.cat-hero .breadcrumb a{color:rgba(255,255,255,.7);transition:color .3s}
-.cat-hero .breadcrumb a:hover{color:var(--gold)}
-.cat-hero h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.5rem);color:var(--white);font-weight:500}
-.cat-hero p{color:rgba(255,255,255,.8);font-size:1rem;margin-top:8px;max-width:500px}
-.btn-enquire{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:50px;font-family:var(--font-sans);font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border:1.5px solid var(--gold);transition:all .3s;white-space:nowrap}
-.btn-enquire:hover{background:var(--gold);color:var(--white)}
-.cta-banner{background:var(--navy);padding:80px 0;text-align:center}
-.cta-banner h2{font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,2.5rem);color:var(--white);margin-bottom:12px;font-weight:400}
-.cta-banner p{color:rgba(255,255,255,.7);margin-bottom:32px;font-size:1rem}
-
-/* PRODUCT CARDS GRID */
-.products-section{padding:60px 0}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
-
-/* PRODUCT CARD WITH CAROUSEL */
-.product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .4s cubic-bezier(.25,.46,.45,.94)}
-.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-.card-carousel{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--blush);cursor:pointer}
-.card-carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
-.card-carousel img.active{opacity:1}
-.card-carousel:hover .carousel-arrow{opacity:1}
-.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.carousel-arrow:hover{background:var(--white)}
-.carousel-arrow svg{width:16px;height:16px;stroke:var(--navy);fill:none}
-.carousel-prev{left:10px}
-.carousel-next{right:10px}
-.carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
-.carousel-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);border:none;cursor:pointer;padding:0;transition:all .3s}
-.carousel-dot.active{background:var(--white);transform:scale(1.2)}
-.card-body{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.card-body h3{font-family:var(--font-serif);font-size:1.15rem;color:var(--navy);font-weight:500}
-.card-body span{font-size:.72rem;color:var(--warm-brown);letter-spacing:.5px}
-
-@media(max-width:768px){
-.cat-hero{height:35vh;min-height:250px}
-.products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-.card-body{padding:14px 16px}
-.card-body h3{font-size:1rem}
-.carousel-arrow{opacity:1;width:30px;height:30px}
-.carousel-arrow svg{width:14px;height:14px}
-}
-@media(max-width:480px){
-.products-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-.card-body{padding:12px 14px;flex-direction:column;align-items:flex-start;gap:8px}
-.card-body h3{font-size:.92rem}
-.product-card{border-radius:var(--radius-sm)}
-}
 </style>
 </head>
 <body>
@@ -220,40 +208,41 @@ section{padding:100px 0}
 
 <!-- HERO -->
 <section class="cat-hero">
-  <div class="cat-hero-bg"><img src="images/products/flower-bouquet/1.jpg" alt="Flower Bouquet"></div>
+  <div class="cat-hero-bg"><img src="images/founders.png" alt="Our Story"></div>
   <div class="cat-hero-overlay"></div>
   <div class="cat-hero-content">
     <div class="container">
-      <p class="breadcrumb"><a href="index.html">Home</a> &mdash; Flower Bouquet</p>
-      <h1>Flower Bouquet</h1>
-      <p>Handcrafted wax flower bouquets</p>
+      <p class="breadcrumb"><a href="index.html">Home</a> &mdash; Our Story</p>
+      <h1>Our Story</h1>
+      <p>Two friends, one passion for handcrafted candles</p>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products-section">
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
   <div class="container">
-    <div class="products-grid">
-
-      <div class="product-card reveal" data-images='["images/products/flower-bouquet/1.jpg","images/products/flower-bouquet/2.jpg","images/products/flower-bouquet/3.jpg","images/products/flower-bouquet/4.jpg","images/products/flower-bouquet/5.jpg"]'>
-        <div class="card-carousel"></div>
-        <div class="card-body">
-          <div><h3>Wax Bouquets</h3></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Wax%20Flower%20Bouquets" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div style="position:relative;max-width:480px;margin:0 auto">
+          <img src="images/founders.png" alt="Pallak & Sakshi - Co-Founders of Sukoon" class="about-img-main" style="width:100%;height:auto;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)">
+          <div style="display:flex;justify-content:space-around;margin-top:16px;padding:0 10%">
+            <div class="founder-info" style="text-align:center"><strong>Pallak</strong><span>Co-Founder</span></div>
+            <div class="founder-info" style="text-align:center"><strong>Sakshi</strong><span>Co-Founder</span></div>
+          </div>
         </div>
       </div>
-
+      <div class="about-text">
+        <p class="section-label reveal">Our Story</p>
+        <h2 class="section-title reveal reveal-delay-1" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Two Friends, One Passion</h2>
+        <blockquote class="about-quote reveal reveal-delay-2">
+          At Sukoon, we pour our passion for artistry and craftsmanship into each candle, meticulously crafted to bring a touch of calm and elegance into your home.
+        </blockquote>
+        <p class="about-desc reveal reveal-delay-3">
+          As two friends fueled by passion, we embarked on this journey to share our love for home decor with the world. Each piece is lovingly crafted by hand, celebrating the imperfections that make handmade products truly one-of-a-kind. From soothing scents to unique designs, our pieces blend tradition with modern flair, adding warmth and tranquility to your space.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner">
-  <div class="container">
-    <h2 class="reveal">Love Our Flower Bouquets?</h2>
-    <p class="reveal reveal-delay-1">Get in touch to order a beautiful wax flower bouquet for yourself or as a gift.</p>
-    <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Flower%20Bouquets" target="_blank" class="btn btn-primary reveal reveal-delay-2">Order on WhatsApp</a>
   </div>
 </section>
 
@@ -287,15 +276,6 @@ section{padding:100px 0}
   <svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  <button class="lb-nav lb-prev" id="lbPrev" onclick="lbPrev(event)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <img src="" alt="Product preview" id="lightboxImg">
-  <button class="lb-nav lb-next" id="lbNext" onclick="lbNext(event)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-  <div class="lb-counter" id="lbCounter"></div>
-</div>
-
 <script>
 // Scroll & Back to top
 window.addEventListener('scroll',()=>{
@@ -323,97 +303,6 @@ if('IntersectionObserver' in window){
 } else {
   document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 }
-
-// Initialize product card carousels
-document.querySelectorAll('.product-card').forEach(card=>{
-  const images=JSON.parse(card.dataset.images);
-  const carousel=card.querySelector('.card-carousel');
-  let currentIndex=0;
-
-  images.forEach((src,i)=>{
-    const img=document.createElement('img');
-    img.src=src;
-    img.alt=card.querySelector('h3').textContent;
-    img.loading='lazy';
-    if(i===0) img.classList.add('active');
-    carousel.appendChild(img);
-  });
-
-  if(images.length>1){
-    const prev=document.createElement('button');
-    prev.className='carousel-arrow carousel-prev';
-    prev.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>';
-    prev.onclick=e=>{e.stopPropagation();goTo((currentIndex-1+images.length)%images.length)};
-    carousel.appendChild(prev);
-
-    const next=document.createElement('button');
-    next.className='carousel-arrow carousel-next';
-    next.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>';
-    next.onclick=e=>{e.stopPropagation();goTo((currentIndex+1)%images.length)};
-    carousel.appendChild(next);
-
-    const dotsContainer=document.createElement('div');
-    dotsContainer.className='carousel-dots';
-    images.forEach((_,i)=>{
-      const dot=document.createElement('button');
-      dot.className='carousel-dot'+(i===0?' active':'');
-      dot.onclick=e=>{e.stopPropagation();goTo(i)};
-      dotsContainer.appendChild(dot);
-    });
-    carousel.appendChild(dotsContainer);
-  }
-
-  function goTo(idx){
-    carousel.querySelectorAll('img')[currentIndex].classList.remove('active');
-    carousel.querySelectorAll('.carousel-dot')[currentIndex]?.classList.remove('active');
-    currentIndex=idx;
-    carousel.querySelectorAll('img')[currentIndex].classList.add('active');
-    carousel.querySelectorAll('.carousel-dot')[currentIndex]?.classList.add('active');
-  }
-
-  let touchStartX=0;
-  carousel.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
-  carousel.addEventListener('touchend',e=>{
-    const diff=touchStartX-e.changedTouches[0].clientX;
-    if(Math.abs(diff)>40){
-      if(diff>0) goTo((currentIndex+1)%images.length);
-      else goTo((currentIndex-1+images.length)%images.length);
-    }
-  });
-
-  carousel.addEventListener('click',()=>{
-    openLightbox(images,currentIndex);
-  });
-});
-
-// Lightbox
-let lightboxImages=[];let lightboxIndex=0;
-function openLightbox(images,startIdx){
-  lightboxImages=images;
-  lightboxIndex=startIdx||0;
-  showLightboxImage();
-  document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function showLightboxImage(){
-  document.getElementById('lightboxImg').src=lightboxImages[lightboxIndex];
-  document.getElementById('lbCounter').textContent=(lightboxIndex+1)+' / '+lightboxImages.length;
-  document.getElementById('lbPrev').style.display=lightboxImages.length>1?'flex':'none';
-  document.getElementById('lbNext').style.display=lightboxImages.length>1?'flex':'none';
-}
-function closeLightbox(e){
-  if(e&&(e.target.classList.contains('lb-nav')||e.target.closest('.lb-nav')))return;
-  document.getElementById('lightbox').classList.remove('active');
-  document.body.style.overflow='';
-}
-function lbPrev(e){e.stopPropagation();lightboxIndex=(lightboxIndex-1+lightboxImages.length)%lightboxImages.length;showLightboxImage()}
-function lbNext(e){e.stopPropagation();lightboxIndex=(lightboxIndex+1)%lightboxImages.length;showLightboxImage()}
-document.addEventListener('keydown',e=>{
-  if(!document.getElementById('lightbox').classList.contains('active'))return;
-  if(e.key==='Escape')closeLightbox();
-  if(e.key==='ArrowLeft')lbPrev(e);
-  if(e.key==='ArrowRight')lbNext(e);
-});
 </script>
 </body>
 </html>
