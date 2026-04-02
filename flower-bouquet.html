@@ -134,6 +134,7 @@ section{padding:100px 0}
 /* PRODUCT CARDS GRID */
 .products-section{padding:60px 0}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.products-grid.single-card{max-width:680px;margin:0 auto;grid-template-columns:1fr}
 
 /* PRODUCT CARD WITH CAROUSEL */
 .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .4s cubic-bezier(.25,.46,.45,.94)}
@@ -232,7 +233,7 @@ section{padding:100px 0}
 <!-- PRODUCTS -->
 <section class="products-section">
   <div class="container">
-    <div class="products-grid">
+    <div class="products-grid single-card">
 
       <div class="product-card reveal" data-images='["images/products/flower-bouquet/1.jpg","images/products/flower-bouquet/2.jpg","images/products/flower-bouquet/3.jpg","images/products/flower-bouquet/4.jpg","images/products/flower-bouquet/5.jpg"]'>
         <div class="card-carousel"></div>
