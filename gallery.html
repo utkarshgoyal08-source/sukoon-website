@@ -76,7 +76,7 @@ section{padding:100px 0}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:999;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:1002;opacity:0;pointer-events:none;transition:opacity .4s;padding-top:80px;box-sizing:border-box}
 .mobile-menu.active{opacity:1;pointer-events:all}
 .mobile-menu a{font-family:var(--font-serif);font-size:1.6rem;color:var(--cream);letter-spacing:2px;transition:color .3s}
 .mobile-menu a:hover{color:var(--gold)}
@@ -106,7 +106,7 @@ section{padding:100px 0}
 .gallery{background:var(--cream)}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .gallery-item{position:relative;overflow:hidden;aspect-ratio:1;border-radius:var(--radius-sm);cursor:pointer}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery-item img{width:100%;height:100%;object-fit:contain;transition:transform .6s}
 .gallery-item:hover img{transform:scale(1.1)}
 .gallery-item::after{content:'';position:absolute;inset:0;background:rgba(44,62,80,0);transition:background .3s}
 .gallery-item:hover::after{background:rgba(44,62,80,.2)}
@@ -165,7 +165,7 @@ section{padding:100px 0}
         <div class="nav-dropdown-menu">
           <a href="candles.html">Candles</a>
           <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
-          <a href="flower-bouquet.html">Wax Floral Arrangements</a>
+          <a href="flower-bouquet.html">Wax Flower Bouquet</a>
           <a href="festive-collection.html">Festive Collection</a>
           <a href="customization.html">Hampers, Customizations &amp; Bulk Orders</a>
         </div>
@@ -187,7 +187,7 @@ section{padding:100px 0}
   <div class="mobile-submenu" id="mobileSubmenu">
     <a href="candles.html">Candles</a>
     <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
-    <a href="flower-bouquet.html">Wax Floral Arrangements</a>
+    <a href="flower-bouquet.html">Wax Flower Bouquet</a>
     <a href="festive-collection.html">Festive Collection</a>
     <a href="customization.html">Hampers, Customizations &amp; Bulk Orders</a>
   </div>
@@ -264,7 +264,7 @@ section{padding:100px 0}
         </div>
       </div>
       <div><h4>Quick Links</h4><ul><li><a href="our-story.html">Our Story</a></li><li><a href="index.html#products">Products</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Collections</h4><ul><li><a href="candles.html">Candles</a></li><li><a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a></li><li><a href="flower-bouquet.html">Wax Floral Arrangements</a></li><li><a href="festive-collection.html">Festive Collection</a></li><li><a href="customization.html">Hampers &amp; Customizations</a></li></ul></div>
+      <div><h4>Collections</h4><ul><li><a href="candles.html">Candles</a></li><li><a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a></li><li><a href="flower-bouquet.html">Wax Flower Bouquet</a></li><li><a href="festive-collection.html">Festive Collection</a></li><li><a href="customization.html">Hampers &amp; Customizations</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="services.html">Corporate Gifting</a></li><li><a href="services.html">Festive Gifting</a></li><li><a href="services.html">Candle Workshops</a></li><li><a href="services.html">Custom Orders</a></li><li><a href="https://wa.me/917264011700" target="_blank">Order via WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 Sukoon. All Rights Reserved. Handcrafted with love in India.</p></div>

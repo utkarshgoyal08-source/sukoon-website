@@ -85,7 +85,7 @@ section{padding:100px 0}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:999;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:1002;opacity:0;pointer-events:none;transition:opacity .4s;padding-top:80px;box-sizing:border-box}
 .mobile-menu.active{opacity:1;pointer-events:all}
 .mobile-menu a{font-family:var(--font-serif);font-size:1.6rem;color:var(--cream);letter-spacing:2px;transition:color .3s}
 .mobile-menu a:hover{color:var(--gold)}
@@ -179,7 +179,7 @@ section{padding:100px 0}
 .category-card{display:block;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .5s cubic-bezier(.25,.46,.45,.94);text-decoration:none;position:relative}
 .category-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
 .category-card-img{position:relative;height:260px;overflow:hidden;background:var(--blush)}
-.category-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.category-card-img img{width:100%;height:100%;object-fit:contain;background:var(--blush);transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
 .category-card:hover .category-card-img img{transform:scale(1.06)}
 .category-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(44,62,80,.6) 100%)}
 .category-card-body{position:absolute;bottom:0;left:0;right:0;padding:20px 22px;z-index:2}
@@ -189,7 +189,7 @@ section{padding:100px 0}
 .event-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .5s cubic-bezier(.25,.46,.45,.94)}
 .event-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
 .event-card-img{position:relative;height:280px;overflow:hidden;background:var(--blush);display:flex;align-items:center;justify-content:center}
-.event-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.event-card-img img{width:100%;height:100%;object-fit:contain;background:var(--blush);transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
 .event-card:hover .event-card-img img{transform:scale(1.06)}
 .event-card-img .event-placeholder{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--warm-brown);font-family:var(--font-sans);font-size:.85rem;font-weight:400}
 .event-card-img .event-placeholder svg{width:48px;height:48px;stroke:var(--light-gold);fill:none;stroke-width:1.5}
@@ -222,6 +222,7 @@ section{padding:100px 0}
 .fragrance-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--gold)}
 .fragrance-icon{width:56px;height:56px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
 .fragrance-icon svg{width:26px;height:26px;fill:none;stroke-width:1.5}
+.fragrance-icon img{width:36px;height:36px;object-fit:contain}
 .fragrance-card h4{font-family:var(--font-serif);font-size:1.05rem;color:var(--navy);font-weight:500;margin-bottom:4px}
 .fragrance-card p{font-size:.68rem;color:var(--warm-brown);letter-spacing:1px;text-transform:uppercase}
 @media(max-width:900px){.fragrance-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
@@ -266,7 +267,7 @@ section{padding:100px 0}
 .gallery{background:var(--cream)}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .gallery-item{position:relative;overflow:hidden;aspect-ratio:1;border-radius:var(--radius-sm);cursor:pointer}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery-item img{width:100%;height:100%;object-fit:contain;background:var(--blush);transition:transform .6s}
 .gallery-item:hover img{transform:scale(1.1)}
 .gallery-item::after{content:'';position:absolute;inset:0;background:rgba(44,62,80,0);transition:background .3s}
 .gallery-item:hover::after{background:rgba(44,62,80,.2)}
@@ -348,7 +349,7 @@ section{padding:100px 0}
         <div class="nav-dropdown-menu">
           <a href="candles.html">Candles</a>
           <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
-          <a href="flower-bouquet.html">Wax Floral Arrangements</a>
+          <a href="flower-bouquet.html">Wax Flower Bouquet</a>
           <a href="festive-collection.html">Festive Collection</a>
           <a href="customization.html">Hampers, Customizations &amp; Bulk Orders</a>
         </div>
@@ -369,14 +370,11 @@ section{padding:100px 0}
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">
-    <a href="container-candles.html">Container Candles</a>
-    <a href="pillar-candles.html">Pillar Candles</a>
-    <a href="diwali.html">Diwali Collection</a>
-    <a href="customization.html">Customization</a>
-    <a href="flower-bouquet.html">Flower Bouquet</a>
-    <a href="fragrance-bars.html">Fragrance Bars</a>
-    <a href="rakhis.html">Rakhis</a>
-    <a href="wax-melts.html">Wax Melts</a>
+    <a href="candles.html">Candles</a>
+    <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
+    <a href="flower-bouquet.html">Wax Flower Bouquet</a>
+    <a href="festive-collection.html">Festive Collection</a>
+    <a href="customization.html">Hampers, Customizations &amp; Bulk Orders</a>
   </div>
   <a href="events.html" onclick="toggleMobileMenu()">Events</a>
   <a href="services.html" onclick="toggleMobileMenu()">Services</a>
@@ -421,12 +419,12 @@ section{padding:100px 0}
 <div class="trust-bar" id="trust">
   <div class="container">
     <div class="trust-bar-inner">
-      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 18.5c2-2 4-3 7-3 3 0 6-2 6-5.5S17 2 17 2s0 4-1 6"/><path d="M14 10c-1 1-2 3-2 5"/></svg>Eco-Friendly</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M7 20h10"/><path d="M10 20c0-4.4 3.6-8 8-8"/><path d="M6 8c3.5 0 6 2.5 6 6"/><path d="M12 4c0 2.2-1.8 4-4 4"/><path d="M12 4c0 2.2 1.8 4 4 4"/><path d="M12 2v2"/></svg>100% Soy Wax</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M18 11V6a2 2 0 00-2-2H8a2 2 0 00-2 2v5"/><path d="M6 11c0 0 2 2 6 2s6-2 6-2"/><path d="M12 13v4"/><path d="M9 21h6"/><path d="M12 17c-2 0-3 1.5-3 4h6c0-2.5-1-4-3-4z"/></svg>Hand-Poured</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 18.5c2-2 4-3 7-3 3 0 6-2 6-5.5S17 2 17 2s0 4-1 6"/><path d="M14 10c-1 1-2 3-2 5"/><path d="M9 13l2 2 4-4"/></svg>Non-Toxic</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><line x1="10" y1="3" x2="10" y2="19"/><line x1="8" y1="19" x2="12" y2="19"/><path d="M10 5l1-2"/><path d="M14 10c2.5-1 4 .5 4 2.5s-2 3-4 2.5"/><path d="M14 10c0 2-1 3.5-2.5 4"/></svg>Natural Wick</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 1v3"/><path d="M8 4c0 0 0 3 4 3s4-3 4-3"/><path d="M7.5 7C6 8.5 5 11 5 13.5c0 4 3 6.5 7 6.5s7-2.5 7-6.5c0-2.5-1-5-2.5-6.5"/><path d="M12 13l2.5-2.5M12 13l-2.5-2.5M12 13v4"/></svg>Handmade</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><ellipse cx="9" cy="15" rx="4" ry="3.5"/><ellipse cx="16" cy="14" rx="3.5" ry="3"/><ellipse cx="12" cy="9" rx="3" ry="2.5"/><circle cx="8" cy="20" r="2"/><circle cx="14" cy="20" r="2"/><circle cx="11" cy="17" r="1.5"/></svg>Soy Wax</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M15 6c-1.5 1.5-3 4-3 6.5S13.5 18 15 19"/><path d="M14.5 5.5c-1 .5-2 1.5-2.5 3"/></svg>Eco Friendly</div>
       <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>Made in India</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2c-1.5 2-5 5-5 9a5 5 0 0010 0c0-4-3.5-7-5-9z"/><path d="M12 18v4"/></svg>Lead-Free Wick</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M9 22l1-7"/><path d="M15 22l-1-7"/><path d="M10 15h4"/><path d="M8 15l-1-5h10l-1 5"/><path d="M7 10l1-5h8l1 5"/><path d="M12 5V3"/><path d="M10 3c1-1.5 3-1.5 4 0"/><path d="M14 7c1.5 0 2.5-1 2-2"/></svg>Toxin Free</div>
     </div>
   </div>
 </div>
@@ -476,8 +474,8 @@ section{padding:100px 0}
         <div class="category-card-body"><h3>Fragrance Bars &amp; Wax Melts</h3></div>
       </a>
       <a href="flower-bouquet.html" class="category-card reveal reveal-delay-2">
-        <div class="category-card-img"><img src="images/5.jpeg" alt="Wax Floral Arrangements" loading="lazy"></div>
-        <div class="category-card-body"><h3>Wax Floral Arrangements</h3></div>
+        <div class="category-card-img"><img src="images/5.jpeg" alt="Wax Flower Bouquet" loading="lazy"></div>
+        <div class="category-card-body"><h3>Wax Flower Bouquet</h3></div>
       </a>
       <a href="festive-collection.html" class="category-card reveal">
         <div class="category-card-img"><img src="images/hero-pushpdeep.jpg" alt="Festive Collection" loading="lazy"></div>
@@ -553,15 +551,15 @@ section{padding:100px 0}
     </div>
     <div class="fragrance-grid">
       <div class="fragrance-card reveal"><div class="fragrance-icon" style="background:#F1F8E9"><svg viewBox="0 0 24 24" stroke="#7CB342"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 18.5c2-2 4-3 7-3 3 0 6-2 6-5.5S17 2 17 2s0 4-1 6"/><path d="M14 10c-1 1-2 3-2 5"/></svg></div><h4>Lemongrass</h4><p>Fresh & Citrusy</p></div>
-      <div class="fragrance-card reveal reveal-delay-1"><div class="fragrance-icon" style="background:#E0F7FA"><svg viewBox="0 0 24 24" stroke="#26C6DA"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h4>Aquafresh</h4><p>Cool & Refreshing</p></div>
-      <div class="fragrance-card reveal reveal-delay-2"><div class="fragrance-icon" style="background:#EDE7F6"><svg viewBox="0 0 24 24" stroke="#7E57C2"><path d="M12 3c-1.5 2-4 4-4 7a4 4 0 008 0c0-3-2.5-5-4-7z"/><path d="M12 14v8"/><path d="M9 18h6"/></svg></div><h4>Lavender</h4><p>Calming & Soothing</p></div>
-      <div class="fragrance-card reveal reveal-delay-3"><div class="fragrance-icon" style="background:#FCE4EC"><svg viewBox="0 0 24 24" stroke="#E91E63"><path d="M12 3c-2 0-4 1-5 3s-1 4 0 6 3 3 5 3 4-1 5-3 1-4 0-6-3-3-5-3z"/><path d="M12 15v7"/><path d="M8 17c1 1 2.5 1.5 4 1.5s3-.5 4-1.5"/></svg></div><h4>Rose</h4><p>Romantic & Floral</p></div>
-      <div class="fragrance-card reveal reveal-delay-4"><div class="fragrance-icon" style="background:#FFF3E0"><svg viewBox="0 0 24 24" stroke="#FF9800"><circle cx="12" cy="10" r="6"/><path d="M12 4c0-1 1-2 2-2"/><path d="M8 16c1 2 2.5 4 4 4s3-2 4-4"/></svg></div><h4>Peach</h4><p>Sweet & Fruity</p></div>
-      <div class="fragrance-card reveal"><div class="fragrance-icon" style="background:#FFFDE7"><svg viewBox="0 0 24 24" stroke="#F9A825"><path d="M12 3c-1 1.5-3 3.5-3 6a3 3 0 006 0c0-2.5-2-4.5-3-6z"/><rect x="8" y="14" width="8" height="6" rx="1"/><path d="M10 20v2M14 20v2"/></svg></div><h4>Vanilla</h4><p>Warm & Comforting</p></div>
+      <div class="fragrance-card reveal reveal-delay-1"><div class="fragrance-icon" style="background:#E0F7FA"><img src="images/icons/fragrances/eucalyptus.png" alt="Eucalyptus"></div><h4>Eucalyptus</h4><p>Cool & Refreshing</p></div>
+      <div class="fragrance-card reveal reveal-delay-2"><div class="fragrance-icon" style="background:#EDE7F6"><img src="images/icons/fragrances/lavender.png" alt="Lavender"></div><h4>Lavender</h4><p>Calming & Soothing</p></div>
+      <div class="fragrance-card reveal reveal-delay-3"><div class="fragrance-icon" style="background:#FCE4EC"><img src="images/icons/fragrances/rose.png" alt="Rose"></div><h4>Rose</h4><p>Romantic & Floral</p></div>
+      <div class="fragrance-card reveal reveal-delay-4"><div class="fragrance-icon" style="background:#FFF3E0"><img src="images/icons/fragrances/peach.png" alt="Peach"></div><h4>Peach</h4><p>Sweet & Fruity</p></div>
+      <div class="fragrance-card reveal"><div class="fragrance-icon" style="background:#FFFDE7"><img src="images/icons/fragrances/vanilla.png" alt="Vanilla"></div><h4>Vanilla</h4><p>Warm & Comforting</p></div>
       <div class="fragrance-card reveal reveal-delay-1"><div class="fragrance-icon" style="background:#EFEBE9"><svg viewBox="0 0 24 24" stroke="#8D6E63"><path d="M12 2v8"/><path d="M5 10c0 8 3 12 7 12s7-4 7-12"/><path d="M9 6c1-1 2-1 3-1s2 0 3 1"/></svg></div><h4>Sandalwood</h4><p>Woody & Earthy</p></div>
-      <div class="fragrance-card reveal reveal-delay-2"><div class="fragrance-icon" style="background:#FFFDE7"><svg viewBox="0 0 24 24" stroke="#FDD835"><path d="M12 12m-3 0a3 3 0 106 0 3 3 0 10-6 0"/><path d="M12 5v-1M12 20v-1M5 12H4M20 12h-1M7.05 7.05l-.7-.7M17.65 17.65l-.7-.7M7.05 16.95l-.7.7M17.65 6.35l-.7.7"/></svg></div><h4>Jasmine</h4><p>Intoxicating & Sweet</p></div>
+      <div class="fragrance-card reveal reveal-delay-2"><div class="fragrance-icon" style="background:#FFFDE7"><img src="images/icons/fragrances/jasmine.png" alt="Jasmine"></div><h4>Jasmine</h4><p>Intoxicating & Sweet</p></div>
       <div class="fragrance-card reveal reveal-delay-3"><div class="fragrance-icon" style="background:#E8F5E9"><svg viewBox="0 0 24 24" stroke="#66BB6A"><path d="M6 20c3-3 8-5 12-7"/><path d="M18 13c-5 0-9 2-12 7"/><path d="M12 10V4"/><path d="M9 7c1-1 2-1 3-1s2 0 3 1"/></svg></div><h4>Rosemary</h4><p>Herbal & Invigorating</p></div>
-      <div class="fragrance-card reveal reveal-delay-4"><div class="fragrance-icon" style="background:#EFEBE9"><svg viewBox="0 0 24 24" stroke="#795548"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M6 8h12v9a4 4 0 01-4 4H10a4 4 0 01-4-4V8z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg></div><h4>Coffee</h4><p>Rich & Energizing</p></div>
+      <div class="fragrance-card reveal reveal-delay-4"><div class="fragrance-icon" style="background:#EFEBE9"><img src="images/icons/fragrances/coffee.png" alt="Coffee"></div><h4>Coffee</h4><p>Rich & Energizing</p></div>
     </div>
   </div>
 </section>
@@ -737,7 +735,7 @@ section{padding:100px 0}
         </div>
       </div>
       <div><h4>Quick Links</h4><ul><li><a href="our-story.html">Our Story</a></li><li><a href="#products">Products</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Collections</h4><ul><li><a href="candles.html">Candles</a></li><li><a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a></li><li><a href="flower-bouquet.html">Wax Floral Arrangements</a></li><li><a href="festive-collection.html">Festive Collection</a></li><li><a href="customization.html">Hampers &amp; Customizations</a></li></ul></div>
+      <div><h4>Collections</h4><ul><li><a href="candles.html">Candles</a></li><li><a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a></li><li><a href="flower-bouquet.html">Wax Flower Bouquet</a></li><li><a href="festive-collection.html">Festive Collection</a></li><li><a href="customization.html">Hampers &amp; Customizations</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="services.html">Corporate Gifting</a></li><li><a href="services.html">Festive Gifting</a></li><li><a href="services.html">Candle Workshops</a></li><li><a href="services.html">Custom Orders</a></li><li><a href="https://wa.me/917264011700" target="_blank">Order via WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 Sukoon. All Rights Reserved. Handcrafted with love in India.</p></div>
