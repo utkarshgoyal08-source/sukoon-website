@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SUKOON | Pillar Candles</title>
@@ -83,21 +84,22 @@ section{padding:100px 0}
 .mobile-products-toggle svg{width:16px;height:16px;stroke:var(--cream);fill:none;transition:transform .3s}
 .mobile-products-toggle.open svg{transform:rotate(180deg)}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
-.footer{background:var(--navy);color:var(--cream);padding:60px 0 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-brand p{color:rgba(250,247,242,.6);font-size:.88rem;line-height:1.8;margin-top:16px}
-.footer h4{font-size:.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--light-gold);margin-bottom:20px}
-.footer ul li{margin-bottom:12px}
-.footer ul a{color:rgba(250,247,242,.6);font-size:.88rem;transition:color .3s}
-.footer ul a:hover{color:var(--gold)}
-.footer-bottom{border-top:1px solid rgba(250,247,242,.1);padding:24px 0;text-align:center}
-.footer-bottom p{font-size:.8rem;color:rgba(250,247,242,.4)}
-.footer-social{display:flex;gap:14px;margin-top:20px}
-.footer-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(250,247,242,.2);display:flex;align-items:center;justify-content:center;transition:all .3s}
+/* FOOTER */
+.footer{background:var(--navy);color:var(--cream);padding:0}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid rgba(250,247,242,.08)}
+.footer-brand-inline{display:flex;align-items:center;gap:16px}
+.footer-brand-inline img{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85}
+.footer-brand-inline p{color:rgba(250,247,242,.45);font-size:.72rem;line-height:1.5;max-width:280px}
+.footer-social{display:flex;gap:8px}
+.footer-social a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(250,247,242,.15);display:flex;align-items:center;justify-content:center;transition:all .3s}
 .footer-social a:hover{border-color:var(--gold);background:var(--gold)}
-.footer-social a svg{width:18px;height:18px;fill:var(--cream)}
-@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+.footer-social a svg{width:13px;height:13px;fill:var(--cream)}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 20px;padding:14px 0;justify-content:center;border-bottom:1px solid rgba(250,247,242,.08)}
+.footer-links a{color:rgba(250,247,242,.45);font-size:.72rem;font-family:var(--font-sans);letter-spacing:.5px;transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{padding:14px 0;text-align:center}
+.footer-bottom p{font-size:.68rem;color:rgba(250,247,242,.3)}
+@media(max-width:768px){.footer-top{flex-direction:column;gap:14px;text-align:center}.footer-brand-inline{flex-direction:column;gap:8px}.footer-brand-inline p{max-width:100%}}
 .whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;cursor:pointer;animation:float 3s infinite}
 .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}@media(max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:20px;right:16px}.whatsapp-float svg{width:26px;height:26px}.back-to-top{bottom:80px;right:18px;width:40px;height:40px}}
 .whatsapp-float svg{width:30px;height:30px;fill:white}
@@ -150,8 +152,10 @@ section{padding:100px 0}
 .carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
 .carousel-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);border:none;cursor:pointer;padding:0;transition:all .3s}
 .carousel-dot.active{background:var(--white);transform:scale(1.2)}
-.card-body{padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.card-body h3{font-family:var(--font-serif);font-size:1.25rem;color:var(--navy);font-weight:500}
+.card-body{padding:18px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.card-body h3{font-family:var(--font-serif);font-size:1.25rem;color:var(--navy);font-weight:500;margin-bottom:4px}
+.card-body .product-desc{font-size:.78rem;color:var(--warm-brown);line-height:1.5;font-weight:300;margin-bottom:4px}
+.card-body .product-tag{font-size:.65rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-weight:500}
 .card-body span{font-size:.72rem;color:var(--warm-brown);letter-spacing:.5px}
 
 @media(max-width:768px){
@@ -168,9 +172,42 @@ section{padding:100px 0}
 .card-body h3{font-size:.92rem}
 .product-card{border-radius:var(--radius-sm)}
 }
+/* ANNOUNCEMENT BAR */
+.announcement-bar{background:var(--navy);position:fixed;top:0;left:0;width:100%;z-index:1001;overflow:hidden;height:28px;display:flex;align-items:center}
+.announcement-track{display:flex;gap:60px;animation:marquee 22s linear infinite;white-space:nowrap;align-items:center}
+.announcement-track span{font-family:var(--font-sans);font-size:.68rem;letter-spacing:1.8px;font-weight:400;color:var(--cream);text-transform:uppercase}
+.announcement-track a{color:var(--gold);font-weight:600;text-decoration:none;transition:opacity .3s}
+.announcement-track a:hover{opacity:.7;text-decoration:underline}
+.announcement-track .dot{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.navbar{top:28px!important}
+.navbar.scrolled{top:28px!important}
+@media(max-width:600px){.announcement-bar{height:24px}.announcement-track span{font-size:.6rem;letter-spacing:1.2px}.navbar{top:24px!important}.navbar.scrolled{top:24px!important}}
 </style>
 </head>
 <body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <div class="announcement-track">
+    <span><span class="dot"></span></span>
+    <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
+    <span class="dot"></span>
+    <span>Hand-Poured Soy Wax &bull; Eco-Friendly &bull; Toxin Free</span>
+    <span class="dot"></span>
+    <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
+    <span class="dot"></span>
+    <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+    <span class="dot"></span>
+    <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
+    <span class="dot"></span>
+    <span>Hand-Poured Soy Wax &bull; Eco-Friendly &bull; Toxin Free</span>
+    <span class="dot"></span>
+    <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
+    <span class="dot"></span>
+    <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+  </div>
+</div>
 
 <!-- NAVBAR -->
 <nav class="navbar scrolled" id="navbar">
@@ -237,7 +274,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/bubble-candle/1.jpg","images/products/pillar-candles/bubble-candle/2.jpg","images/products/pillar-candles/bubble-candle/3.jpg","images/products/pillar-candles/bubble-candle/4.jpg","images/products/pillar-candles/bubble-candle/5.jpg","images/products/pillar-candles/bubble-candle/6.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Bubble Candle</h3></div>
+          <div><h3>Bubble Candle</h3><p class="product-desc">Bubbly, bold, and impossibly cute.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Bubble%20Candle%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -245,7 +282,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/tapered-candles/1.jpg","images/products/pillar-candles/tapered-candles/2.jpg","images/products/pillar-candles/tapered-candles/3.jpg","images/products/pillar-candles/tapered-candles/4.jpg","images/products/pillar-candles/tapered-candles/5.jpg","images/products/pillar-candles/tapered-candles/6.jpg","images/products/pillar-candles/tapered-candles/7.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Tapered Candles</h3></div>
+          <div><h3>Tapered Candles</h3><p class="product-desc">Dinner party essential. Instant atmosphere.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Tapered%20Candles%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -253,7 +290,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/peony/1.jpg","images/products/pillar-candles/peony/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Peony</h3></div>
+          <div><h3>Peony</h3><p class="product-desc">A peony that never wilts, only glows.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Peony%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -261,7 +298,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/pyramid/1.jpg","images/products/pillar-candles/pyramid/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Pyramid</h3></div>
+          <div><h3>Pyramid</h3><p class="product-desc">Sharp lines. Soft glow. Statement piece.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Pyramid%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -269,7 +306,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/sea-shell/1.jpg","images/products/pillar-candles/sea-shell/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Sea Shell</h3></div>
+          <div><h3>Sea Shell</h3><p class="product-desc">Bring the beach home. No sand required.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Sea%20Shell%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -277,7 +314,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/together/1.jpg","images/products/pillar-candles/together/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Together</h3></div>
+          <div><h3>Together</h3><p class="product-desc">Two flames, one love. Made for pairs.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Together%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -285,7 +322,7 @@ section{padding:100px 0}
       <div class="product-card reveal" data-images='["images/products/pillar-candles/concrete-pillar/1.jpg","images/products/pillar-candles/concrete-pillar/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Concrete Pillar</h3></div>
+          <div><h3>Concrete Pillar</h3><p class="product-desc">Raw concrete meets soft candlelight.</p><p class="product-tag">Available in all fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Concrete%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -306,21 +343,30 @@ section{padding:100px 0}
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <svg width="60" height="60" viewBox="0 0 200 200"><circle cx="100" cy="100" r="94" fill="#2C3E50" stroke="#C9A84C" stroke-width="2.5"/><circle cx="100" cy="100" r="86" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="0.8"/><text x="100" y="92" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="38" font-weight="500" fill="#FAF7F2" letter-spacing="5">SUK</text><text x="100" y="130" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="38" font-weight="500" fill="#FAF7F2" letter-spacing="5">OON</text><line x1="58" y1="100" x2="142" y2="100" stroke="#C9A84C" stroke-width="0.6" opacity="0.5"/></svg>
-        <p>Hand-poured luxury scented candles & contemporary home decor. Crafted with love in India by Sakshi & Pallak.</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/sukoon_studio__/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://wa.me/917264011700" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="mailto:sukoonghar98@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-        </div>
+    <div class="footer-top">
+      <div class="footer-brand-inline">
+        <img src="images/logo-nav.png" alt="Sukoon">
+        <p>Hand-poured luxury scented candles &amp; contemporary home decor.</p>
       </div>
-      <div><h4>Quick Links</h4><ul><li><a href="our-story.html">Our Story</a></li><li><a href="index.html#products">Products</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Collections</h4><ul><li><a href="candles.html">Candles</a></li><li><a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a></li><li><a href="flower-bouquet.html">Wax Flower Bouquet</a></li><li><a href="festive-collection.html">Festive Collection</a></li><li><a href="customization.html">Hampers &amp; Customizations</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="services.html">Corporate Gifting</a></li><li><a href="services.html">Festive Gifting</a></li><li><a href="services.html">Candle Workshops</a></li><li><a href="services.html">Custom Orders</a></li><li><a href="https://wa.me/917264011700" target="_blank">Order via WhatsApp</a></li></ul></div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sukoon_studio__/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://wa.me/917264011700" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a href="mailto:sukoonghar98@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2025-2026 Sukoon. All Rights Reserved. Handcrafted with love in India.</p></div>
+    <div class="footer-links">
+      <a href="our-story.html">Our Story</a>
+      <a href="candles.html">Candles</a>
+      <a href="fragrance-bars-wax-melts.html">Fragrance Bars</a>
+      <a href="flower-bouquet.html">Flower Bouquet</a>
+      <a href="festive-collection.html">Festive Collection</a>
+      <a href="customization.html">Hampers</a>
+      <a href="services.html">Services</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025&ndash;2026 Sukoon. All Rights Reserved. Handcrafted with love in India.</p></div>
   </div>
 </footer>
 
