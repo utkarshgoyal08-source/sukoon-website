@@ -115,7 +115,7 @@ section{padding:100px 0}
 .back-to-top.visible{opacity:1;transform:translateY(0)}
 .back-to-top:hover{background:var(--gold)}
 .back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none}
-.cat-hero{position:relative;height:45vh;min-height:380px;overflow:hidden;display:flex;align-items:flex-end;padding:80px 0 40px}
+.cat-hero{position:relative;height:45vh;min-height:380px;overflow:hidden;display:flex;align-items:center;padding:80px 0 40px}
 .cat-hero-bg{position:absolute;inset:0}
 .cat-hero-bg img{width:100%;height:100%;object-fit:cover}
 .cat-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,62,80,.3) 0%,rgba(44,62,80,.7) 100%)}
@@ -141,6 +141,8 @@ section{padding:100px 0}
 .card-carousel{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--cream);cursor:pointer}
 .card-carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .4s ease}
 .card-carousel img.active{opacity:1}
+.product-card--contain .card-carousel{background:var(--cream)}
+.product-card--contain .card-carousel img{object-fit:contain;padding:8px}
 .card-carousel:hover .carousel-arrow{opacity:1}
 .carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 .carousel-arrow:hover{background:var(--white)}
@@ -269,75 +271,75 @@ section{padding:100px 0}
   <div class="container">
     <div class="products-grid">
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-aakar-deep/1.jpg","images/products/diwali/2025-aakar-deep/2.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-aakar-deep/1.jpg","images/products/diwali/2025-aakar-deep/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Aakar Deep</h3><p class="product-desc">Where tradition meets modern artistry.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Aakar%20Deep%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Aakar%20Deep" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-earthern-pot/1.jpg","images/products/diwali/2025-earthern-pot/2.jpg","images/products/diwali/2025-earthern-pot/3.jpg","images/products/diwali/2025-earthern-pot/4.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-earthern-pot/1.jpg","images/products/diwali/2025-earthern-pot/2.jpg","images/products/diwali/2025-earthern-pot/3.jpg","images/products/diwali/2025-earthern-pot/4.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Earthern Pot</h3><p class="product-desc">Old-world charm, new-world fragrance.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Earthern%20Pot%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Earthern%20Pot" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-gaj-deep/1.jpg","images/products/diwali/2025-gaj-deep/2.jpg","images/products/diwali/2025-gaj-deep/3.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-gaj-deep/1.jpg","images/products/diwali/2025-gaj-deep/2.jpg","images/products/diwali/2025-gaj-deep/3.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Gaj Deep</h3><p class="product-desc">Majestic elephant bringing festive blessings.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Gaj%20Deep%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Gaj%20Deep" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-ladoo/1.jpg","images/products/diwali/2025-ladoo/2.jpg","images/products/diwali/2025-ladoo/3.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-ladoo/1.jpg","images/products/diwali/2025-ladoo/2.jpg","images/products/diwali/2025-ladoo/3.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Ladoo</h3><p class="product-desc">Sweet as the festive season itself.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Ladoo%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Ladoo" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-leher-deep/1.jpg","images/products/diwali/2025-leher-deep/2.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-leher-deep/1.jpg","images/products/diwali/2025-leher-deep/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Leher Deep</h3><p class="product-desc">Flowing waves of light for your mandir.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Leher%20Deep%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Leher%20Deep" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-mini-lotus/1.jpg","images/products/diwali/2025-mini-lotus/2.jpg","images/products/diwali/2025-mini-lotus/3.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-mini-lotus/1.jpg","images/products/diwali/2025-mini-lotus/2.jpg","images/products/diwali/2025-mini-lotus/3.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Mini Lotus</h3><p class="product-desc">Float them. Light them. Love them.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Mini%20Lotus%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Mini%20Lotus" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-peanut/1.jpg","images/products/diwali/2025-peanut/2.jpg","images/products/diwali/2025-peanut/3.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-peanut/1.jpg","images/products/diwali/2025-peanut/2.jpg","images/products/diwali/2025-peanut/3.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Peanut</h3><p class="product-desc">The quirkiest candle at every gathering.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Peanut%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Peanut" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-pushp-deep/1.jpg","images/products/diwali/2025-pushp-deep/2.jpg","images/products/diwali/2025-pushp-deep/3.jpg","images/products/diwali/2025-pushp-deep/4.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-pushp-deep/1.jpg","images/products/diwali/2025-pushp-deep/2.jpg","images/products/diwali/2025-pushp-deep/3.jpg","images/products/diwali/2025-pushp-deep/4.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Pushp Deep</h3><p class="product-desc">Every petal hand-shaped, every prayer lit.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Pushp%20Deep%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Pushp%20Deep" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
-      <div class="product-card reveal" data-images='["images/products/diwali/2025-round-urli/1.jpg","images/products/diwali/2025-round-urli/2.jpg","images/products/diwali/2025-round-urli/3.jpg"]'>
+      <div class="product-card product-card--contain reveal" data-images='["images/products/diwali/2025-round-urli/1.jpg","images/products/diwali/2025-round-urli/2.jpg","images/products/diwali/2025-round-urli/3.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Round Urli</h3><p class="product-desc">The centrepiece your table deserves.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Round%20Urli%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Round%20Urli" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -345,7 +347,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Three Leaf</h3><p class="product-desc">Nature-inspired, hand-poured, soul-warming.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Three%20Leaf%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Three%20Leaf" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -353,7 +355,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Daisy Diyas</h3><p class="product-desc">Daisies that glow instead of grow.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Daisy%20Diyas%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Daisy%20Diyas" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -361,7 +363,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Hamper</h3><p class="product-desc">Gifting made gorgeous this festive season.</p><p class="product-tag">Ready to Gift</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Hamper%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Hamper" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -369,7 +371,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Hand Painted Diyas</h3><p class="product-desc">Each one painted by hand, one of a kind.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Hand%20Painted%20Diyas%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Hand%20Painted%20Diyas" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -377,7 +379,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Inverted Glass</h3><p class="product-desc">Flip the script on traditional candles.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Inverted%20Glass%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Inverted%20Glass" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -385,7 +387,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Round Urli (Gold)</h3><p class="product-desc">Gold-kissed elegance for your celebrations.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Round%20Urli%20(Gold)%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Round%20Urli%20(Gold)" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -393,7 +395,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Urli Orange</h3><p class="product-desc">A burst of colour for festive evenings.</p><p class="product-tag">Scented Soy Wax</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Urli%20Orange%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Urli%20Orange" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
@@ -401,7 +403,7 @@ section{padding:100px 0}
         <div class="card-carousel"></div>
         <div class="card-body">
           <div><h3>Hampers Classic</h3><p class="product-desc">Our icons, beautifully boxed for gifting.</p><p class="product-tag">Ready to Gift</p></div>
-          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Hampers%20Classic%20from%20Diwali%20Collection" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Hampers%20Classic" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
 
