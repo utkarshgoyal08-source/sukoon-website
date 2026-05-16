@@ -164,14 +164,23 @@ section{padding:100px 0}
 .products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
 .card-body{padding:14px 16px}
 .card-body h3{font-size:1rem}
-.carousel-arrow{opacity:1;width:44px;height:44px}
-.carousel-arrow svg{width:14px;height:14px}
+.carousel-arrow{opacity:1;width:32px;height:32px}
+.carousel-arrow svg{width:12px;height:12px}
+.carousel-prev{left:6px}
+.carousel-next{right:6px}
 }
 @media(max-width:480px){
 .products-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-.card-body{padding:12px 14px;flex-direction:column;align-items:flex-start;gap:8px}
-.card-body h3{font-size:.92rem}
+.card-carousel{aspect-ratio:1/1}
+.card-body{padding:10px 12px;flex-direction:column;align-items:flex-start;gap:5px}
+.card-body h3{font-size:.9rem;margin-bottom:0}
+.card-body .product-desc{font-size:.7rem;line-height:1.35;margin-bottom:2px}
+.card-body .product-tag{font-size:.55rem;letter-spacing:.5px}
+.btn-enquire{padding:8px 14px;min-height:36px;font-size:.62rem;letter-spacing:1px;margin-top:2px}
 .product-card{border-radius:var(--radius-sm)}
+.carousel-arrow{display:none}
+.carousel-dots{bottom:6px}
+.carousel-dot{width:6px;height:6px}
 }
 /* ANNOUNCEMENT BAR */
 .announcement-bar{background:var(--navy);position:fixed;top:0;left:0;width:100%;z-index:1001;overflow:hidden;height:28px;display:flex;align-items:center}
@@ -238,6 +247,7 @@ section{padding:100px 0}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMobileMenu()">Home</a>
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">
@@ -275,7 +285,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/pillar-candles/bubble-candle/3.jpg","images/products/pillar-candles/bubble-candle/1.jpg","images/products/pillar-candles/bubble-candle/2.jpg","images/products/pillar-candles/bubble-candle/4.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Classic Bubble Candle</h3><p class="product-desc">Bubbly, bold, and impossibly cute.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Classic Bubble Candle</h3><p class="product-desc">Bubbly, bold, and impossibly cute.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Classic%20Bubble%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -283,7 +293,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/pillar-candles/bubble-candle/5.jpg","images/products/pillar-candles/bubble-candle/6.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Mini Bubble Candle</h3><p class="product-desc">Pocket-sized bubbles, twice the charm.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Mini Bubble Candle</h3><p class="product-desc">Pocket-sized bubbles, twice the charm.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Mini%20Bubble%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -291,7 +301,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/pillar-candles/tapered-candles/1.jpg","images/products/pillar-candles/tapered-candles/2.jpg","images/products/pillar-candles/tapered-candles/3.jpg","images/products/pillar-candles/tapered-candles/4.jpg","images/products/pillar-candles/tapered-candles/5.jpg","images/products/pillar-candles/tapered-candles/6.jpg","images/products/pillar-candles/tapered-candles/7.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Tapered Candles</h3><p class="product-desc">Dinner party essential. Instant atmosphere.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Tapered Candles</h3><p class="product-desc">Dinner party essential. Instant atmosphere.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Tapered%20Candles" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -299,7 +309,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/pillar-candles/peony/2.jpg","images/products/pillar-candles/peony/1.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Peony Candle</h3><p class="product-desc">A peony that never wilts, only glows.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Peony Candle</h3><p class="product-desc">A peony that never wilts, only glows.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Peony%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -307,7 +317,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/pillar-candles/pyramid/1.jpg","images/products/pillar-candles/pyramid/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Pyramid Candle</h3><p class="product-desc">Sharp lines. Soft glow. Statement piece.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Pyramid Candle</h3><p class="product-desc">Sharp lines. Soft glow. Statement piece.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Pyramid%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -315,7 +325,7 @@ section{padding:100px 0}
       <div class="product-card product-card--focus-bottom reveal" data-images='["images/products/pillar-candles/sea-shell/1.jpg","images/products/pillar-candles/sea-shell/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Sea Shell Candle</h3><p class="product-desc">Bring the beach home. No sand required.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Sea Shell Candle</h3><p class="product-desc">Bring the beach home. No sand required.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Sea%20Shell%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -323,7 +333,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/pillar-candles/concrete-pillar/1.jpg","images/products/pillar-candles/concrete-pillar/2.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Concrete Pillar Candle</h3><p class="product-desc">Raw concrete meets soft candlelight.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Concrete Pillar Candle</h3><p class="product-desc">Raw concrete meets soft candlelight.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Concrete%20Pillar%20Candle" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>

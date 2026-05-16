@@ -206,11 +206,14 @@ section{padding:72px 0}
 @media(max-width:900px){
 .category-grid{grid-template-columns:1fr 1fr;gap:16px}
 .category-card-img{height:320px}
+.category-grid .category-card:last-child{grid-column:span 2}
+.category-grid .category-card:last-child .category-card-img{height:240px}
 .events-grid{grid-template-columns:1fr 1fr;gap:20px}
 }
 @media(max-width:600px){
 .category-grid{grid-template-columns:1fr 1fr;gap:12px}
 .category-card-img{height:240px}
+.category-grid .category-card:last-child .category-card-img{height:200px}
 .category-card-body{padding:14px 16px}
 .category-card-body h3{font-size:1rem}
 .category-card-body p{font-size:.65rem}
@@ -403,6 +406,7 @@ section{padding:72px 0}
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMobileMenu()">Home</a>
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">

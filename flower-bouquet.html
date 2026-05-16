@@ -164,7 +164,7 @@ section{padding:100px 0}
 .products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
 .card-body{padding:14px 16px}
 .card-body h3{font-size:1rem}
-.carousel-arrow{opacity:1;width:44px;height:44px}
+.carousel-arrow{opacity:1;width:36px;height:36px}
 .carousel-arrow svg{width:14px;height:14px}
 }
 @media(max-width:480px){
@@ -172,6 +172,8 @@ section{padding:100px 0}
 .card-body{padding:12px 14px;flex-direction:column;align-items:flex-start;gap:8px}
 .card-body h3{font-size:.92rem}
 .product-card{border-radius:var(--radius-sm)}
+.carousel-arrow{width:32px;height:32px}
+.carousel-arrow svg{width:12px;height:12px}
 }
 /* ANNOUNCEMENT BAR */
 .announcement-bar{background:var(--navy);position:fixed;top:0;left:0;width:100%;z-index:1001;overflow:hidden;height:28px;display:flex;align-items:center}
@@ -238,6 +240,7 @@ section{padding:100px 0}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMobileMenu()">Home</a>
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">
@@ -275,7 +278,7 @@ section{padding:100px 0}
       <div class="product-card product-card--contain reveal" data-images='["images/products/flower-bouquet/1.jpg","images/products/flower-bouquet/2.jpg","images/products/flower-bouquet/3.jpg","images/products/flower-bouquet/4.jpg","images/products/flower-bouquet/5.jpg"]'>
         <div class="card-carousel"></div>
         <div class="card-body">
-          <div><h3>Wax Bouquets</h3><p class="product-desc">Real flowers fade. These bloom forever.</p><p class="product-tag">Available in all fragrances</p></div>
+          <div><h3>Wax Bouquets</h3><p class="product-desc">Real flowers fade. These bloom forever.</p><p class="product-tag">All fragrances</p></div>
           <a href="https://wa.me/917264011700?text=Hi!%20I'm%20interested%20in%20Wax%20Flower%20Bouquets" target="_blank" class="btn-enquire">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
