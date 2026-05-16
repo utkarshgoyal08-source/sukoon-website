@@ -81,6 +81,8 @@ section{padding:100px 0}
 .mobile-menu.active{opacity:1;pointer-events:all}
 .mobile-menu a{font-family:var(--font-serif);font-size:1.6rem;color:var(--cream);letter-spacing:2px;transition:color .3s}
 .mobile-menu a:hover{color:var(--gold)}
+.mobile-close{position:absolute;top:22px;right:18px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:none;color:var(--cream);font-size:2rem;cursor:pointer;line-height:1;padding:0;font-family:var(--font-sans)}
+.mobile-close:hover{color:var(--gold)}
 .mobile-submenu{display:none;flex-direction:column;gap:12px;padding:0 20px}
 .mobile-submenu.active{display:flex}
 .mobile-submenu a{font-size:1rem!important;color:rgba(250,247,242,.7)!important;letter-spacing:1px}
@@ -211,6 +213,7 @@ section{padding:100px 0}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
   <a href="index.html" onclick="toggleMobileMenu()">Home</a>
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
