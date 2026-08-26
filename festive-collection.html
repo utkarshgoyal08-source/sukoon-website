@@ -114,8 +114,8 @@ section{padding:100px 0}
 .lb-prev{left:20px}.lb-next{right:20px}
 .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:.8rem;letter-spacing:2px}
 @media(max-width:600px){.lb-nav{width:44px;height:44px}.lb-prev{left:10px}.lb-next{right:10px}}
-.back-to-top{position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
-.back-to-top.visible{opacity:1;transform:translateY(0)}
+.back-to-top{pointer-events:none;position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .back-to-top:hover{background:var(--gold)}
 .back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none}
 .cat-hero{position:relative;height:45vh;min-height:380px;overflow:hidden;display:flex;align-items:center;padding:80px 0 40px}
@@ -204,8 +204,7 @@ section{padding:100px 0}
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
   <div class="announcement-track">
-    <span><span class="dot"></span></span>
-    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span>&#129684; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -215,7 +214,7 @@ section{padding:100px 0}
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
     <span class="dot"></span>
-    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span>&#129684; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -224,6 +223,7 @@ section{padding:100px 0}
     <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+    <span class="dot"></span>
   </div>
 </div>
 
@@ -250,7 +250,7 @@ section{padding:100px 0}
       <a href="contact.html">Contact</a>
       <a href="https://wa.me/917264011700" target="_blank" class="nav-cta">Order Now</a>
     </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Open menu" onclick="toggleMobileMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMobileMenu()}"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
@@ -298,11 +298,11 @@ section{padding:100px 0}
         <div class="category-card-body"><h3>Diwali&rsquo;26 &mdash; The New Collection</h3></div>
       </a>
       <a href="diwali.html" class="category-card reveal">
-        <div class="category-card-img"><img loading="lazy" src="images/products/diwali/round-urli/hero.jpg" alt="Diwali Collection" loading="lazy"></div>
+        <div class="category-card-img"><img loading="lazy" src="images/products/diwali/round-urli/hero.jpg" alt="Diwali Collection"></div>
         <div class="category-card-body"><h3>Diwali Classics</h3></div>
       </a>
       <a href="rakhis.html" class="category-card reveal reveal-delay-1">
-        <div class="category-card-img"><img loading="lazy" src="images/products/rakhis/hero.jpg" alt="Wax Rakhi Collection" style="object-position:center center" loading="lazy"></div>
+        <div class="category-card-img"><img loading="lazy" src="images/products/rakhis/hero.jpg" alt="Wax Rakhi Collection" style="object-position:center center"></div>
         <div class="category-card-body"><h3>Wax Rakhi Collection</h3></div>
       </a>
     </div>
@@ -356,10 +356,10 @@ section{padding:100px 0}
 </button>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image viewer" onclick="closeLightbox(event)">
   <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
   <button class="lb-nav lb-prev" id="lbPrev" onclick="lbPrev(event)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <img src="" alt="Product preview" id="lightboxImg">
+  <img src="data:," alt="Product preview" id="lightboxImg">
   <button class="lb-nav lb-next" id="lbNext" onclick="lbNext(event)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
@@ -412,14 +412,14 @@ document.querySelectorAll('.product-card').forEach(card=>{
   if(images.length>1){
     // Prev arrow
     const prev=document.createElement('button');
-    prev.className='carousel-arrow carousel-prev';
+    prev.className='carousel-arrow carousel-prev';prev.setAttribute('aria-label','Previous image');
     prev.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>';
     prev.onclick=e=>{e.stopPropagation();goTo((currentIndex-1+images.length)%images.length)};
     carousel.appendChild(prev);
 
     // Next arrow
     const next=document.createElement('button');
-    next.className='carousel-arrow carousel-next';
+    next.className='carousel-arrow carousel-next';next.setAttribute('aria-label','Next image');
     next.innerHTML='<svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>';
     next.onclick=e=>{e.stopPropagation();goTo((currentIndex+1)%images.length)};
     carousel.appendChild(next);
@@ -429,7 +429,7 @@ document.querySelectorAll('.product-card').forEach(card=>{
     dotsContainer.className='carousel-dots';
     images.forEach((_,i)=>{
       const dot=document.createElement('button');
-      dot.className='carousel-dot'+(i===0?' active':'');
+      dot.className='carousel-dot'+(i===0?' active':'');dot.setAttribute('aria-label','Go to image '+(i+1));
       dot.onclick=e=>{e.stopPropagation();goTo(i)};
       dotsContainer.appendChild(dot);
     });

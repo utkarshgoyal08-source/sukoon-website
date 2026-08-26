@@ -336,8 +336,8 @@ section{padding:72px 0}
 .lightbox-close:hover{background:rgba(255,255,255,.1)}
 
 /* BACK TO TOP */
-.back-to-top{position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
-.back-to-top.visible{opacity:1;transform:translateY(0)}
+.back-to-top{pointer-events:none;position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .back-to-top:hover{background:var(--gold)}
 .back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none}
 
@@ -400,8 +400,7 @@ section{padding:72px 0}
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
   <div class="announcement-track">
-    <span><span class="dot"></span></span>
-    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span>&#129684; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -411,7 +410,7 @@ section{padding:72px 0}
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
     <span class="dot"></span>
-    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span>&#129684; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -420,6 +419,7 @@ section{padding:72px 0}
     <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+    <span class="dot"></span>
   </div>
 </div>
 
@@ -450,7 +450,7 @@ section{padding:72px 0}
       <a href="contact.html">Contact</a>
       <a href="https://wa.me/917264011700" target="_blank" class="nav-cta">Order Now</a>
     </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Open menu" onclick="toggleMobileMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMobileMenu()}">
       <span></span><span></span><span></span>
     </div>
   </div>
@@ -489,8 +489,8 @@ section{padding:72px 0}
       <div class="slide"><img src="images/9.jpeg" alt="Sukoon Evil Eye Collection"></div>
     </div>
     <div class="hero-arrows">
-      <button class="hero-arrow" onclick="prevSlide()"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="hero-arrow" onclick="nextSlide()"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="hero-arrow" onclick="changeSlide(-1)"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="hero-arrow" onclick="changeSlide(1)"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
     <div class="carousel-indicators" id="carouselIndicators">
       <button class="active" onclick="goToSlide(0)"></button>
@@ -539,7 +539,7 @@ section{padding:72px 0}
   <span class="d26-spark" style="top:70%;left:3%;animation-delay:.9s">&#10022;</span>
   <span class="d26-spark" style="top:18%;right:8%;animation-delay:1.5s">&#10022;</span>
   <span class="d26-spark" style="bottom:14%;right:4%;animation-delay:.5s">&#10022;</span>
-  <span class="d26-spark d26-charm" style="top:8%;left:14%;animation-delay:1.2s">&#128367;</span>
+  <span class="d26-spark d26-charm" style="top:8%;left:14%;animation-delay:1.2s">&#129684;</span>
   <span class="d26-spark d26-charm" style="bottom:10%;left:10%;animation-delay:2s">&#127879;</span>
   <span class="d26-spark d26-charm" style="top:60%;right:6%;animation-delay:.3s">&#10024;</span>
   <div class="container">
@@ -547,10 +547,10 @@ section{padding:72px 0}
       <div class="d26-copy">
         <p class="d26-kicker reveal">Introducing</p>
         <h2 class="reveal">Diwali&rsquo;26 &mdash;<br><em>Five Chapters of Light</em></h2>
-        <p class="d26-sub reveal reveal-delay-1">Our biggest festive collection yet &mdash; marigolds cast in wax, taash-night candles, hand-painted kulhads, mithai you must not eat and marble that holds the quiet after. Hand-poured in Jodhpur, in small batches.</p>
+        <p class="d26-sub reveal reveal-delay-1">Our biggest festive collection yet &mdash; marigolds cast in wax, taash-night candles, hand-painted kulhads, mithai you must not eat, and marble that holds the quiet after. Hand-poured in Jodhpur, in small batches.</p>
         <div class="d26-chapters reveal reveal-delay-1"><span>Baithak</span><span>Rangreez</span><span>Aangan</span><span>Utsav</span><span>Mukta</span></div>
         <div class="d26-countdown reveal reveal-delay-2" id="d26Countdown" aria-label="Countdown to Diwali">
-          <span class="d26-cd-label">&#128367; Diwali is in</span>
+          <span class="d26-cd-label">&#129684; Diwali is in</span>
           <div class="d26-cd-chips">
             <div class="d26-cd-chip"><b id="d26d">--</b><i>Days</i></div>
             <div class="d26-cd-chip"><b id="d26h">--</b><i>Hrs</i></div>
@@ -925,9 +925,9 @@ section{padding:72px 0}
   <svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="closeLightbox()">
   <button class="lightbox-close">&times;</button>
-  <img src="" alt="Gallery preview" id="lightboxImg">
+  <img src="data:," alt="Gallery preview" id="lightboxImg">
 </div>
 
 <script>
@@ -1029,7 +1029,7 @@ function handleContactForm(e){
 }
 
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const __h=a.getAttribute('href');if(!__h||__h.length<2)return;const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
 </script>
 
 <script>
@@ -1040,7 +1040,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
   const target=new Date('2026-11-08T00:00:00+05:30').getTime();
   function tick(){
     let ms=target-Date.now();
-    if(ms<=0){document.getElementById('d26Countdown').innerHTML='<span class="d26-cd-label" style="font-size:1rem">&#128367; Shubh Deepavali!</span>';return;}
+    if(ms<=0){document.getElementById('d26Countdown').innerHTML='<span class="d26-cd-label" style="font-size:1rem">&#129684; Shubh Deepavali!</span>';return;}
     const d=Math.floor(ms/864e5);ms-=d*864e5;
     const hh=Math.floor(ms/36e5);ms-=hh*36e5;
     const m=Math.floor(ms/6e4);

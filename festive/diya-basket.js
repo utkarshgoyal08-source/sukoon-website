@@ -22,8 +22,8 @@
       'color:#2C3E50;font-family:Outfit,sans-serif;font-size:.68rem;font-weight:600;display:flex;align-items:center;'+
       'justify-content:center;padding:0 5px;box-sizing:border-box}'+
     '.db-badge.db-hide{display:none}'+
-    '.db-overlay{position:fixed;inset:0;z-index:949;background:rgba(44,62,80,.35);display:none}'+
-    '.db-panel{position:fixed;bottom:92px;left:20px;z-index:950;width:calc(100vw - 40px);max-width:340px;'+
+    '.db-overlay{position:fixed;inset:0;z-index:992;background:rgba(44,62,80,.35);display:none}'+
+    '.db-panel{position:fixed;bottom:92px;left:20px;z-index:993;width:calc(100vw - 40px);max-width:340px;'+
       'background:#FAF7F2;border-radius:14px;box-shadow:0 12px 40px rgba(44,62,80,.28);padding:18px 18px 16px;'+
       'display:none;box-sizing:border-box}'+
     '.db-open .db-overlay,.db-open .db-panel{display:block}'+
@@ -128,7 +128,7 @@
         '<div class="db-head"><h4>Aapki Diya Basket</h4>'+
         '<button type="button" class="db-close" aria-label="Close basket">&#10005;</button></div>'+
         '<ul class="db-list"></ul>'+
-        '<p class="db-empty" hidden>Abhi khaali hai &mdash; tap the diya on any candle to light it into your basket.</p>'+
+        '<p class="db-empty" hidden>Abhi khaali hai &mdash; tap the diya on any piece to light it into your basket.</p>'+
         '<a class="db-wa" href="#" target="_blank" rel="noopener">Enquire on WhatsApp &rarr;</a>'+
         '<button type="button" class="db-clear">Clear all</button>'+
       '</div>';

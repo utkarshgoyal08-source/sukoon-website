@@ -178,7 +178,7 @@
         '<p class="pd-kicker">The Hidden Chapter</p>' +
         '<h2>Chapter Six &mdash; Sukoon</h2>' +
         '<div class="pd-rule" aria-hidden="true"><span>' + DIYA + '</span></div>' +
-        '<p class="pd-note">Paanch ke paanch diye dhoondh liye &mdash; kamaal ho aap! Somewhere between Baithak and Mukta, aapne wahi kiya jo humein sabse pyaara hai: ruk kar roshni dhoondhna. WhatsApp us the word <b>PANCHDEEP</b> and we’ll tuck a chhota sa shagun into your first order &mdash; hamari taraf se, pyaar ke saath.</p>' +
+        '<p class="pd-note">Paanch ke paanch diye dhoondh liye &mdash; kamaal ho aap! Somewhere between Baithak and Mukta, aapne wahi kiya jo humein sabse pyaara hai: ruk kar roshni dhoondhna. WhatsApp us the word <b>PANCHDEEP</b> and we’ll tuck a chhota sa shagun into your next order &mdash; hamari taraf se, pyaar ke saath.</p>' +
         '<p class="pd-sign">&mdash; Pallak &amp; Sakshi</p>' +
         '<a class="pd-btn" href="' + WA + '" target="_blank" rel="noopener">WhatsApp &ldquo;PANCHDEEP&rdquo;</a>' +
         '</div>';

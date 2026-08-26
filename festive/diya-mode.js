@@ -18,7 +18,7 @@
 
   var CSS = [
     /* toggle button: stacks above the Diya Basket FAB (bottom:24px) */
-    '.dm-toggle{position:fixed;left:20px;bottom:92px;z-index:910;width:44px;height:44px;border-radius:50%;',
+    '.dm-toggle{position:fixed;left:20px;bottom:92px;z-index:991;width:44px;height:44px;border-radius:50%;',
     '  background:#2C3E50;border:1.5px solid #C9A84C;display:flex;align-items:center;justify-content:center;',
     '  cursor:pointer;padding:0;box-shadow:0 4px 14px rgba(0,0,0,.28);',
     '  transition:box-shadow .4s ease,border-color .4s ease,transform .25s ease}',
@@ -226,8 +226,9 @@
       if (e.key !== 'Escape' || !on) return;
       var el = document.getElementById('lightbox');
       if (el && el.classList.contains('active')) return; /* lightbox closes; darkness resumes */
+      if (document.querySelector('.db-root.db-open')) return; /* basket owns this Escape */
       deactivate();
-    });
+    }, true); /* capture: run before lightbox/basket handlers consume state */
 
     /* restore saved preference, quietly (no hint) */
     if (readPref() === 'on') activate(true);

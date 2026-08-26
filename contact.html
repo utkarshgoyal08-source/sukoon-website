@@ -148,8 +148,8 @@ section{padding:100px 0}
 .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
 @media(max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:20px;right:16px}.whatsapp-float svg{width:26px;height:26px}.back-to-top{bottom:80px;right:18px;width:40px;height:40px}}
 .whatsapp-float svg{width:30px;height:30px;fill:white}
-.back-to-top{position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
-.back-to-top.visible{opacity:1;transform:translateY(0)}
+.back-to-top{pointer-events:none;position:fixed;bottom:100px;right:30px;z-index:800;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-md)}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .back-to-top:hover{background:var(--gold)}
 .back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none}
 /* ANNOUNCEMENT BAR */
@@ -170,8 +170,7 @@ section{padding:100px 0}
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
   <div class="announcement-track">
-    <span><span class="dot"></span></span>
-    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span>&#129684; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -181,7 +180,7 @@ section{padding:100px 0}
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
     <span class="dot"></span>
-    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span>&#129684; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -190,6 +189,7 @@ section{padding:100px 0}
     <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+    <span class="dot"></span>
   </div>
 </div>
 
@@ -216,7 +216,7 @@ section{padding:100px 0}
       <a href="contact.html">Contact</a>
       <a href="https://wa.me/917264011700" target="_blank" class="nav-cta">Order Now</a>
     </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Open menu" onclick="toggleMobileMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMobileMenu()}"><span></span><span></span><span></span></div>
   </div>
 </nav>
 

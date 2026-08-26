@@ -110,7 +110,10 @@
     setTimeout(function () {
       if (v.parentNode) v.parentNode.removeChild(v);
       document.body.classList.remove('sm-active');
-      document.body.style.overflow = prevOverflow;
+      var lb = document.getElementById('lightbox');
+      var mm = document.getElementById('mobileMenu');
+      var stillLocked = (lb && lb.classList.contains('active')) || (mm && mm.classList.contains('active'));
+      document.body.style.overflow = stillLocked ? 'hidden' : '';
       active = false;
     }, 620);
   }
@@ -146,7 +149,7 @@
       if (taps.length >= 5) { taps = []; start(); return; }
       var href = link && link.getAttribute('href');
       navT = setTimeout(function () { // lone tap -> behave like a normal logo tap
-        if (taps.length === 1 && href && !active) window.location.href = href;
+        if (taps.length >= 1 && taps.length < 5 && href && !active) window.location.href = href;
       }, 600);
     });
   }
