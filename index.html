@@ -118,6 +118,8 @@ section{padding:72px 0}
 .hero-option.active{display:block}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,62,80,.5) 0%,rgba(44,62,80,.65) 50%,rgba(26,26,26,.8) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.hero-content{transition:opacity .35s ease}
+.hero-content.fading{opacity:0}
 .hero-badge{font-family:var(--font-sans);font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--light-gold);margin-bottom:24px;animation:fadeInUp 1s ease .2s both}
 .hero-title{font-family:var(--font-serif);font-size:clamp(3.2rem,8vw,6rem);color:var(--white);font-weight:400;margin-bottom:20px;animation:fadeInUp 1s ease .4s both;line-height:1.1}
 .hero-title em{font-style:italic;color:var(--light-gold)}
@@ -350,6 +352,47 @@ section{padding:72px 0}
 .navbar{top:28px!important}
 .navbar.scrolled{top:28px!important}
 @media(max-width:600px){.announcement-bar{height:24px}.announcement-track span{font-size:.6rem;letter-spacing:1.2px}.navbar{top:24px!important}.navbar.scrolled{top:24px!important}}
+
+/* ===== DIWALI'26 BANNER ===== */
+.d26-banner{position:relative;background:linear-gradient(135deg,#1b2836 0%,#2C3E50 55%,#233245 100%);overflow:hidden;padding:88px 0}
+.d26-banner::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(201,168,76,.14) 1px,transparent 1.5px);background-size:26px 26px;opacity:.6}
+.d26-banner::after{content:'';position:absolute;top:-120px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.22) 0%,transparent 65%)}
+.d26-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.d26-copy .d26-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--light-gold);font-weight:600;margin-bottom:18px}
+.d26-copy .d26-kicker::before,.d26-copy .d26-kicker::after{content:'';width:28px;height:1px;background:var(--gold)}
+.d26-copy h2{font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,4rem);color:var(--white);font-weight:500;line-height:1.1}
+.d26-copy h2 em{font-style:italic;color:var(--gold)}
+.d26-copy .d26-sub{color:rgba(250,247,242,.75);font-size:1rem;line-height:1.75;margin:18px 0 8px;max-width:480px}
+.d26-chapters{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 30px;font-family:var(--font-serif);font-size:1.05rem;font-style:italic;color:var(--light-gold)}
+.d26-chapters span::after{content:'✦';margin-left:14px;font-size:.6rem;color:var(--gold);font-style:normal;vertical-align:2px}
+.d26-chapters span:last-child::after{display:none}
+.d26-cta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.d26-cta .btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;padding:16px 36px;border-radius:50px;font-family:var(--font-sans);font-size:.85rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .4s;box-shadow:0 6px 24px rgba(201,168,76,.35)}
+.d26-cta .btn-gold:hover{background:var(--light-gold);color:var(--navy);transform:translateY(-2px)}
+.d26-cta .d26-count{font-size:.8rem;color:rgba(250,247,242,.55);letter-spacing:1px}
+.d26-collage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.d26-collage .d26-ph{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(201,168,76,.35);box-shadow:0 14px 44px rgba(0,0,0,.35)}
+.d26-collage .d26-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.d26-collage .d26-ph:hover img{transform:scale(1.05)}
+.d26-collage .d26-ph:nth-child(1){grid-row:span 2;aspect-ratio:3/4.4}
+.d26-collage .d26-ph:nth-child(2){aspect-ratio:4/3;transform:translateY(18px)}
+.d26-collage .d26-ph:nth-child(3){aspect-ratio:4/3;transform:translateY(18px)}
+.d26-banner{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Ctext y='24' font-size='22'%3E%F0%9F%A7%A8%3C/text%3E%3C/svg%3E") 4 4,auto}
+.d26-banner a{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Ctext y='24' font-size='22'%3E%F0%9F%A7%A8%3C/text%3E%3C/svg%3E") 4 4,pointer}
+.d26-charm{font-size:1.25rem;filter:drop-shadow(0 0 8px rgba(201,168,76,.6))}
+.d26-countdown{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 26px}
+.d26-cd-label{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--light-gold);font-weight:600}
+.d26-cd-chips{display:flex;gap:10px}
+.d26-cd-chip{min-width:62px;text-align:center;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.4);border-radius:12px;padding:8px 10px}
+.d26-cd-chip b{display:block;font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--white);line-height:1.1;font-variant-numeric:tabular-nums}
+.d26-cd-chip i{font-style:normal;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,247,242,.55)}
+@media(max-width:900px){.d26-countdown{justify-content:center}}
+@media(max-width:480px){.d26-cd-chip{min-width:54px;padding:6px 8px}.d26-cd-chip b{font-size:1.25rem}}
+.d26-spark{position:absolute;color:var(--gold);font-size:1rem;animation:d26twinkle 2.8s ease-in-out infinite;z-index:1}
+@keyframes d26twinkle{0%,100%{opacity:.25;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
+@media(max-width:900px){.d26-inner{grid-template-columns:1fr;gap:44px}.d26-copy{text-align:center}.d26-copy .d26-sub{margin-left:auto;margin-right:auto}.d26-chapters{justify-content:center}.d26-cta{justify-content:center}.d26-banner{padding:64px 0}}
+@media(max-width:480px){.d26-collage{gap:10px}.d26-collage .d26-ph:nth-child(2),.d26-collage .d26-ph:nth-child(3){transform:translateY(10px)}.d26-cta .btn-gold{padding:14px 28px}}
+
 </style>
 </head>
 <body>
@@ -358,6 +401,8 @@ section{padding:72px 0}
 <div class="announcement-bar">
   <div class="announcement-track">
     <span><span class="dot"></span></span>
+    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
     <span>Hand-Poured Soy Wax &bull; Eco-Friendly &bull; Toxin Free</span>
@@ -365,6 +410,8 @@ section{padding:72px 0}
     <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+    <span class="dot"></span>
+    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -389,6 +436,7 @@ section{padding:72px 0}
       <div class="nav-dropdown">
         <a href="#products" class="nav-dropdown-trigger">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
+          <a href="diwali-2026.html">Diwali&rsquo;26 Collection <span style="font-size:.55rem;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 7px;border-radius:20px">NEW</span></a>
           <a href="candles.html">Candles</a>
           <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
           <a href="flower-bouquet.html">Wax Flower Bouquet</a>
@@ -414,6 +462,7 @@ section{padding:72px 0}
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">
+    <a href="diwali-2026.html">Diwali&rsquo;26 Collection <span style="font-size:.55rem;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 7px;border-radius:20px">NEW</span></a>
     <a href="candles.html">Candles</a>
     <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
     <a href="flower-bouquet.html">Wax Flower Bouquet</a>
@@ -431,9 +480,11 @@ section{padding:72px 0}
 <section class="hero" id="hero">
   <div class="hero-option active" id="heroCarousel">
     <div class="hero-carousel" id="carouselSlider">
-      <div class="slide active"><img src="images/evil-eye-ribbon.jpg" alt="Sukoon Evil Eye Collection"></div>
+      <div class="slide active"><img src="images/products/diwali-2026/baithak/marigold-coaster/1.jpg" alt="Diwali 26 Collection - Marigold Coaster Candles" style="object-position:center 45%"></div>
+      <div class="slide"><img src="images/products/diwali-2026/baithak/taash-suits/1.jpg" alt="Diwali 26 Collection - Taash Suit Candles" style="object-position:center 42%"></div>
+      <div class="slide"><img src="images/products/diwali-2026/mukta/set/1.jpg" alt="Diwali 26 Collection - Mukta Marble Tealight Holders" style="object-position:center 50%"></div>
+      <div class="slide"><img src="images/evil-eye-ribbon.jpg" alt="Sukoon Evil Eye Collection"></div>
       <div class="slide"><img src="images/hero-fragrance-bars.jpg" alt="Sukoon Fragrance Bars Collection"></div>
-      <div class="slide"><img src="images/hero-diwali-candles.jpg" alt="Sukoon Diwali Collection"></div>
       <div class="slide"><img src="images/13.jpeg" alt="Sukoon Rose Candles"></div>
       <div class="slide"><img src="images/9.jpeg" alt="Sukoon Evil Eye Collection"></div>
     </div>
@@ -447,15 +498,17 @@ section{padding:72px 0}
       <button onclick="goToSlide(2)"></button>
       <button onclick="goToSlide(3)"></button>
       <button onclick="goToSlide(4)"></button>
+      <button onclick="goToSlide(5)"></button>
+      <button onclick="goToSlide(6)"></button>
     </div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-badge">Hand-Poured Luxury Candles</p>
-    <h1 class="hero-title">Find Your <em>Sukoon</em></h1>
-    <p class="hero-desc">Artisan scented candles crafted with love, bringing warmth, tranquility, and elegance to every space.</p>
+    <p class="hero-badge" id="heroBadge">New &mdash; The Festive Collection</p>
+    <h1 class="hero-title" id="heroTitle">Diwali&rsquo;26 &mdash; <em>Five Chapters of Light</em></h1>
+    <p class="hero-desc" id="heroDesc">Marigolds cast in wax, taash-night candles, hand-painted kulhads, mithai &amp; marble &mdash; our biggest festive collection yet.</p>
     <div class="hero-buttons">
-      <a href="#products" class="btn btn-primary">Explore Collection</a>
+      <a href="diwali-2026.html" class="btn btn-primary" id="heroPrimaryBtn">Explore Diwali&rsquo;26</a>
       <a href="our-story.html" class="btn btn-outline">Our Story</a>
     </div>
   </div>
@@ -478,6 +531,46 @@ section{padding:72px 0}
     </div>
   </div>
 </div>
+
+
+<!-- DIWALI'26 BANNER -->
+<section class="d26-banner" id="diwali26">
+  <span class="d26-spark" style="top:12%;left:6%">&#10022;</span>
+  <span class="d26-spark" style="top:70%;left:3%;animation-delay:.9s">&#10022;</span>
+  <span class="d26-spark" style="top:18%;right:8%;animation-delay:1.5s">&#10022;</span>
+  <span class="d26-spark" style="bottom:14%;right:4%;animation-delay:.5s">&#10022;</span>
+  <span class="d26-spark d26-charm" style="top:8%;left:14%;animation-delay:1.2s">&#128367;</span>
+  <span class="d26-spark d26-charm" style="bottom:10%;left:10%;animation-delay:2s">&#127879;</span>
+  <span class="d26-spark d26-charm" style="top:60%;right:6%;animation-delay:.3s">&#10024;</span>
+  <div class="container">
+    <div class="d26-inner">
+      <div class="d26-copy">
+        <p class="d26-kicker reveal">Introducing</p>
+        <h2 class="reveal">Diwali&rsquo;26 &mdash;<br><em>Five Chapters of Light</em></h2>
+        <p class="d26-sub reveal reveal-delay-1">Our biggest festive collection yet &mdash; marigolds cast in wax, taash-night candles, hand-painted kulhads, mithai you must not eat and marble that holds the quiet after. Hand-poured in Jodhpur, in small batches.</p>
+        <div class="d26-chapters reveal reveal-delay-1"><span>Baithak</span><span>Rangreez</span><span>Aangan</span><span>Utsav</span><span>Mukta</span></div>
+        <div class="d26-countdown reveal reveal-delay-2" id="d26Countdown" aria-label="Countdown to Diwali">
+          <span class="d26-cd-label">&#128367; Diwali is in</span>
+          <div class="d26-cd-chips">
+            <div class="d26-cd-chip"><b id="d26d">--</b><i>Days</i></div>
+            <div class="d26-cd-chip"><b id="d26h">--</b><i>Hrs</i></div>
+            <div class="d26-cd-chip"><b id="d26m">--</b><i>Min</i></div>
+            <div class="d26-cd-chip"><b id="d26s">--</b><i>Sec</i></div>
+          </div>
+        </div>
+        <div class="d26-cta reveal reveal-delay-2">
+          <a href="diwali-2026.html" class="btn-gold">Explore the Collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <span class="d26-count">29 pieces &bull; 5 chapters</span>
+        </div>
+      </div>
+      <div class="d26-collage reveal reveal-delay-1">
+        <div class="d26-ph"><img loading="lazy" src="images/products/diwali-2026/baithak/taash-suits/1.jpg" alt="Diwali 26 - Taash Suit Candles"></div>
+        <div class="d26-ph"><img loading="lazy" src="images/products/diwali-2026/mukta/set/1.jpg" alt="Diwali 26 - Mukta Marble Tealight Holders"></div>
+        <div class="d26-ph"><img loading="lazy" src="images/products/diwali-2026/rangreez/hobnail-jar/1.jpg" alt="Diwali 26 - Rangreez Hobnail Jar Candles"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
@@ -857,7 +950,26 @@ let currentSlide=0;
 const slides=document.querySelectorAll('#carouselSlider .slide');
 const indicators=document.querySelectorAll('#carouselIndicators button');
 let carouselInterval;
-function goToSlide(n){slides[currentSlide].classList.remove('active');indicators[currentSlide].classList.remove('active');currentSlide=(n+slides.length)%slides.length;slides[currentSlide].classList.add('active');indicators[currentSlide].classList.add('active')}
+const heroCopy={
+  d26:{badge:'New — The Festive Collection',title:'Diwali’26 — <em>Five Chapters of Light</em>',desc:'Marigolds cast in wax, taash-night candles, hand-painted kulhads, mithai & marble — our biggest festive collection yet.',btn:'Explore Diwali’26',href:'diwali-2026.html'},
+  def:{badge:'Hand-Poured Luxury Candles',title:'Find Your <em>Sukoon</em>',desc:'Artisan scented candles crafted with love, bringing warmth, tranquility, and elegance to every space.',btn:'Explore Collection',href:'#products'}
+};
+let heroCopyState='d26';
+function applyHeroCopy(n){
+  const want=n<=2?'d26':'def';
+  if(want===heroCopyState)return;
+  heroCopyState=want;
+  const c=heroCopy[want],el=document.querySelector('.hero-content');
+  el.classList.add('fading');
+  setTimeout(()=>{
+    document.getElementById('heroBadge').textContent=c.badge;
+    document.getElementById('heroTitle').innerHTML=c.title;
+    document.getElementById('heroDesc').textContent=c.desc;
+    const b=document.getElementById('heroPrimaryBtn');b.textContent=c.btn;b.setAttribute('href',c.href);
+    el.classList.remove('fading');
+  },350);
+}
+function goToSlide(n){slides[currentSlide].classList.remove('active');indicators[currentSlide].classList.remove('active');currentSlide=(n+slides.length)%slides.length;slides[currentSlide].classList.add('active');indicators[currentSlide].classList.add('active');applyHeroCopy(currentSlide)}
 function changeSlide(dir){goToSlide(currentSlide+dir);clearInterval(carouselInterval);startCarousel()}
 function prevSlide(){
   const slides=document.querySelectorAll('#carouselSlider .slide');
@@ -918,6 +1030,26 @@ function handleContactForm(e){
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+</script>
+
+<script>
+// Diwali'26 countdown (Diwali: 8 Nov 2026, IST)
+(function(){
+  const el={d:document.getElementById('d26d'),h:document.getElementById('d26h'),m:document.getElementById('d26m'),s:document.getElementById('d26s')};
+  if(!el.d)return;
+  const target=new Date('2026-11-08T00:00:00+05:30').getTime();
+  function tick(){
+    let ms=target-Date.now();
+    if(ms<=0){document.getElementById('d26Countdown').innerHTML='<span class="d26-cd-label" style="font-size:1rem">&#128367; Shubh Deepavali!</span>';return;}
+    const d=Math.floor(ms/864e5);ms-=d*864e5;
+    const hh=Math.floor(ms/36e5);ms-=hh*36e5;
+    const m=Math.floor(ms/6e4);
+    const s=Math.floor((ms-m*6e4)/1e3);
+    el.d.textContent=d;el.h.textContent=String(hh).padStart(2,'0');el.m.textContent=String(m).padStart(2,'0');el.s.textContent=String(s).padStart(2,'0');
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
 </script>
 </body>
 </html>

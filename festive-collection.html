@@ -173,7 +173,7 @@ section{padding:100px 0}
 }
 
 /* CATEGORY CARDS (landing page) */
-.category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .category-card{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .4s cubic-bezier(.25,.46,.45,.94);display:block}
 .category-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
 .category-card-img{height:420px;overflow:hidden}
@@ -184,7 +184,7 @@ section{padding:100px 0}
 .coming-soon-card{pointer-events:none;cursor:default}
 .coming-soon-overlay{position:absolute;inset:0;background:rgba(44,62,80,.55);display:flex;align-items:center;justify-content:center;z-index:2}
 .coming-soon-overlay span{font-family:var(--font-serif);font-size:clamp(1.2rem,3vw,1.6rem);color:var(--white);font-weight:500;letter-spacing:3px;text-transform:uppercase;padding:12px 32px;border:2px solid rgba(255,255,255,.5);border-radius:50px}
-@media(max-width:768px){.category-grid{grid-template-columns:1fr 1fr;gap:16px}.category-card-img{height:320px}}
+@media(max-width:768px){.category-grid{grid-template-columns:1fr 1fr;gap:16px}.category-card-img{height:320px}.category-card:nth-child(3):last-child{grid-column:1/-1}}
 @media(max-width:480px){.category-grid{grid-template-columns:1fr 1fr;gap:12px}.category-card-img{height:240px}.category-card-body{padding:16px}.category-card-body h3{font-size:1rem}}
 /* ANNOUNCEMENT BAR */
 .announcement-bar{background:var(--navy);position:fixed;top:0;left:0;width:100%;z-index:1001;overflow:hidden;height:28px;display:flex;align-items:center}
@@ -205,6 +205,8 @@ section{padding:100px 0}
 <div class="announcement-bar">
   <div class="announcement-track">
     <span><span class="dot"></span></span>
+    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
+    <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
     <span>Hand-Poured Soy Wax &bull; Eco-Friendly &bull; Toxin Free</span>
@@ -212,6 +214,8 @@ section{padding:100px 0}
     <span>Custom Orders &amp; Bulk Gifting Available &mdash; <a href="https://wa.me/917264011700?text=Hi!%20I'd%20like%20to%20know%20about%20custom%20orders" target="_blank">Enquire Now</a></span>
     <span class="dot"></span>
     <span>Handcrafted with Love in India by Pallak &amp; Sakshi</span>
+    <span class="dot"></span>
+    <span>&#128367; The Diwali&rsquo;26 Collection is Here &mdash; <a href="diwali-2026.html">Shop Now</a> &#10024;</span>
     <span class="dot"></span>
     <span>Free Delivery in Mumbai &amp; Jodhpur on Orders Above &#8377;999</span>
     <span class="dot"></span>
@@ -232,6 +236,7 @@ section{padding:100px 0}
       <div class="nav-dropdown">
         <a href="index.html#products" class="nav-dropdown-trigger">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
+          <a href="diwali-2026.html">Diwali&rsquo;26 Collection <span style="font-size:.55rem;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 7px;border-radius:20px">NEW</span></a>
           <a href="candles.html">Candles</a>
           <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
           <a href="flower-bouquet.html">Wax Flower Bouquet</a>
@@ -256,6 +261,7 @@ section{padding:100px 0}
   <a href="our-story.html" onclick="toggleMobileMenu()">Our Story</a>
   <a href="javascript:void(0)" class="mobile-products-toggle" onclick="toggleMobileProducts(this)">Products <svg viewBox="0 0 24 24" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="mobile-submenu" id="mobileSubmenu">
+    <a href="diwali-2026.html">Diwali&rsquo;26 Collection <span style="font-size:.55rem;font-weight:700;letter-spacing:1px;background:var(--gold);color:#fff;padding:2px 7px;border-radius:20px">NEW</span></a>
     <a href="candles.html">Candles</a>
     <a href="fragrance-bars-wax-melts.html">Fragrance Bars &amp; Wax Melts</a>
     <a href="flower-bouquet.html">Wax Flower Bouquet</a>
@@ -286,9 +292,14 @@ section{padding:100px 0}
 <section class="products-section">
   <div class="container">
     <div class="category-grid">
+      <a href="diwali-2026.html" class="category-card reveal" style="position:relative">
+        <span style="position:absolute;top:14px;left:14px;z-index:3;font-family:var(--font-sans);font-size:.6rem;font-weight:700;letter-spacing:2px;background:var(--gold);color:#fff;padding:5px 12px;border-radius:20px">NEW &bull; 2026</span>
+        <div class="category-card-img"><img loading="lazy" src="images/products/diwali-2026/baithak/marigold-coaster/1.jpg" alt="Diwali 26 Collection" style="object-position:center 40%"></div>
+        <div class="category-card-body"><h3>Diwali&rsquo;26 &mdash; The New Collection</h3></div>
+      </a>
       <a href="diwali.html" class="category-card reveal">
         <div class="category-card-img"><img loading="lazy" src="images/products/diwali/round-urli/hero.jpg" alt="Diwali Collection" loading="lazy"></div>
-        <div class="category-card-body"><h3>Diwali Collection</h3></div>
+        <div class="category-card-body"><h3>Diwali Classics</h3></div>
       </a>
       <a href="rakhis.html" class="category-card reveal reveal-delay-1">
         <div class="category-card-img"><img loading="lazy" src="images/products/rakhis/hero.jpg" alt="Wax Rakhi Collection" style="object-position:center center" loading="lazy"></div>
