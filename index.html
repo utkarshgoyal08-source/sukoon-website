@@ -581,7 +581,6 @@ section{padding:72px 0}
         </div>
         <div class="d26-cta reveal reveal-delay-2">
           <a href="diwali-2026.html" class="btn-gold">Explore the Collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <span class="d26-count">27 pieces &bull; 5 chapters</span>
         </div>
       </div>
       <div class="d26-collage reveal reveal-delay-1">
@@ -990,8 +989,8 @@ function applyHeroCopy(n){
     el.classList.remove('fading');
   },350);
 }
-function goToSlide(n){slides[currentSlide].classList.remove('active');indicators[currentSlide].classList.remove('active');currentSlide=(n+slides.length)%slides.length;slides[currentSlide].classList.add('active');indicators[currentSlide].classList.add('active');applyHeroCopy(currentSlide)}
-function changeSlide(dir){goToSlide(currentSlide+dir);clearInterval(carouselInterval);startCarousel()}
+function goToSlide(n){slides[currentSlide].classList.remove('active');indicators[currentSlide].classList.remove('active');currentSlide=(n+slides.length)%slides.length;slides[currentSlide].classList.add('active');indicators[currentSlide].classList.add('active');applyHeroCopy(currentSlide);if(typeof startCarousel==='function')startCarousel()}
+function changeSlide(dir){goToSlide(currentSlide+dir);clearTimeout(carouselInterval);startCarousel()}
 function prevSlide(){
   const slides=document.querySelectorAll('#carouselSlider .slide');
   let cur=0;slides.forEach((s,i)=>{if(s.classList.contains('active'))cur=i});
@@ -1002,7 +1001,8 @@ function nextSlide(){
   let cur=0;slides.forEach((s,i)=>{if(s.classList.contains('active'))cur=i});
   goToSlide(cur===slides.length-1?0:cur+1);
 }
-function startCarousel(){carouselInterval=setInterval(()=>goToSlide(currentSlide+1),4500)}
+function slideDwell(i){return i<=2?7500:4500} // first three are the Diwali’26 highlights
+function startCarousel(){clearTimeout(carouselInterval);carouselInterval=setTimeout(function(){goToSlide(currentSlide+1);startCarousel()},slideDwell(currentSlide))}
 startCarousel();
 
 // Touch swipe
