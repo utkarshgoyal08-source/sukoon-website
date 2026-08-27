@@ -45,6 +45,8 @@
     '.ck-f input,.ck-f textarea{width:100%;font-family:Outfit,sans-serif;font-size:.9rem;color:#2C3E50;background:#fff;',
       'border:1px solid #E8D5A3;border-radius:10px;padding:11px 12px;min-height:46px;outline:none;transition:border-color .2s}',
     '.ck-f textarea{min-height:70px;resize:vertical;line-height:1.5}',
+    /* hint text must never be mistaken for a filled-in value */
+    '.ck-f input::placeholder,.ck-f textarea::placeholder{color:#B9AC99;font-style:italic;opacity:1}',
     '.ck-f input:focus,.ck-f textarea:focus{border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.16)}',
     '.ck-f.ck-bad input,.ck-f.ck-bad textarea{border-color:#C0563F}',
     '.ck-err{display:none;font-family:Outfit,sans-serif;font-size:.66rem;color:#C0563F;margin-top:4px}',
@@ -207,12 +209,12 @@
         return '<li>' + esc(it.name) + '<span>' + esc(it.chapter || '') + '</span></li>';
       }).join('') + '</ul>' +
       '<p class="ck-por">Prices on request — we\'ll quote each piece when we confirm.</p>' +
-      field('name', 'Your name', 'text', 'Pallak Goyal', 'autocomplete="name"') +
-      field('phone', 'WhatsApp number', 'tel', '98765 43210', 'inputmode="numeric" autocomplete="tel"') +
+      field('name', 'Your name', 'text', '', 'autocomplete="name"') +
+      field('phone', 'WhatsApp number', 'tel', '', 'inputmode="numeric" autocomplete="tel"') +
       field('address', 'Delivery address', 'textarea', 'Flat / house, street, area, landmark') +
       '<div class="ck-row">' +
-        field('city', 'City', 'text', 'Jodhpur', 'autocomplete="address-level2"') +
-        field('pincode', 'Pincode', 'text', '342001', 'inputmode="numeric" autocomplete="postal-code" maxlength="6"') +
+        field('city', 'City', 'text', '', 'autocomplete="address-level2"') +
+        field('pincode', 'Pincode', 'text', '', 'inputmode="numeric" autocomplete="postal-code" maxlength="6"') +
       '</div>' +
       '<div class="ck-f"><label>Occasion (optional)</label><div class="ck-chips">' +
         ['Diwali gift', 'For my home', 'Corporate gifting', 'Wedding / shagun'].map(function (o) {
