@@ -41,7 +41,8 @@
     'body.dm-on .card-carousel img.active{filter:brightness(1.08) saturate(1.05)}',
     'body.dm-on .product-card{box-shadow:0 0 40px rgba(201,168,76,.15)}',
     'body.dm-on .navbar{opacity:.25}',
-    'body.dm-on .navbar:hover,body.dm-on .navbar:focus-within{opacity:1}',
+    'body.dm-on .navbar:focus-within{opacity:1}',
+    '@media(hover:hover){body.dm-on .navbar:hover{opacity:1}}',
     /* first-time hint chip */
     '.dm-hint{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.95);z-index:995;',
     '  pointer-events:none;background:rgba(44,62,80,.96);color:#E8D5A3;border:1px solid rgba(201,168,76,.45);',
