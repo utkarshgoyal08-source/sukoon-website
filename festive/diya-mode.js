@@ -18,7 +18,7 @@
 
   var CSS = [
     /* toggle button: stacks above the Diya Basket FAB (bottom:24px) */
-    '.dm-toggle{position:fixed;left:20px;bottom:92px;z-index:991;width:44px;height:44px;border-radius:50%;',
+    '.dm-toggle{position:fixed;left:20px;bottom:24px;z-index:991;width:44px;height:44px;border-radius:50%;',
     '  background:#2C3E50;border:1.5px solid #C9A84C;display:flex;align-items:center;justify-content:center;',
     '  cursor:pointer;padding:0;box-shadow:0 4px 14px rgba(0,0,0,.28);',
     '  transition:box-shadow .4s ease,border-color .4s ease,transform .25s ease}',
@@ -29,7 +29,7 @@
     '  animation:dm-pulse 2.8s ease-in-out infinite}',
     '@keyframes dm-pulse{0%,100%{box-shadow:0 0 14px rgba(201,168,76,.55),0 0 30px rgba(201,168,76,.22)}',
     '  50%{box-shadow:0 0 24px rgba(201,168,76,.9),0 0 48px rgba(201,168,76,.4)}}',
-    '@media(max-width:480px){.dm-toggle{left:16px;bottom:152px}}',
+    '@media(max-width:480px){.dm-toggle{left:16px;bottom:24px}}',
     /* darkness overlay: below navbar(1000) and lightbox(2000); never intercepts input */
     '.dm-overlay{position:fixed;inset:0;z-index:990;pointer-events:none!important;opacity:0;transition:opacity .5s ease;',
     '  background:radial-gradient(circle at var(--dm-x,50%) var(--dm-y,42%),',
