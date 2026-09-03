@@ -10,6 +10,7 @@
   window.__sukoonCheckout = true;
 
   var WA = 'https://wa.me/917264011700?text=';
+  var OFFER_CODE = 'SUKOON10';
   var BASKET_KEY = 'sukoon_diya_basket';
   var ORDERS_KEY = 'sukoon_orders';
   var DRAFT_KEY = 'sukoon_checkout_draft';
@@ -143,6 +144,8 @@
     L.push(order.city + ' - ' + order.pincode);
     if (order.occasion) { L.push(''); L.push('*Occasion*: ' + order.occasion); }
     if (order.note) { L.push('*Gift note*: "' + order.note + '"'); }
+    L.push('');
+    L.push('*Offer*: ' + OFFER_CODE + ' — 10% off first order above ₹999');
     L.push('');
     L.push('Please confirm the total and share the UPI payment link. Dhanyavaad!');
     return L.join('\n');
