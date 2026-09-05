@@ -73,6 +73,7 @@
     if (document.querySelector('.ck-sheet')) return true;              // checkout open
     if (document.querySelector('.sm-veil')) return true;               // sukoon moment
     if (document.querySelector('.db-root.db-open')) return true;       // basket panel
+    if (document.querySelector('.dm-ladi')) return true;               // ladi still hanging
     var lb = document.getElementById('lightbox');
     if (lb && lb.classList.contains('active')) return true;
     var mm = document.getElementById('mobileMenu');

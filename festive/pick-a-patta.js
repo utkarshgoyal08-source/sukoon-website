@@ -1,6 +1,8 @@
 /* SUKOON - "Pick a Patta" | Diwali'26 Baithak ritual
-   Self-contained vanilla JS (load with <script defer>). Injects a once-daily
-   card-draw panel right after the Baithak products grid on diwali-2026.html.
+   Self-contained vanilla JS (load with <script defer>). Injects a card-draw
+   panel right after the Baithak products grid on diwali-2026.html. A fresh
+   random card on every page load; the last card is remembered only so the
+   next refresh never repeats it.
    Class prefix: pp- | localStorage key: sukoon_pick_a_patta */
 (function () {
   'use strict';
@@ -82,17 +84,22 @@
     '@media(min-width:560px){.pp-panel{padding:48px 32px 52px}.pp-card{width:110px;height:160px;margin:0 -12px}.pp-fan{padding:36px 0 18px;min-height:190px}.pp-pip b{font-size:15px}.pp-pip i{font-size:10px}.pp-suit{display:inline;font-size:15px}.pp-cname{font-size:8px}.pp-bless{font-size:11.5px}}' +
     '@keyframes ppIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}' +
     '@keyframes ppRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}' +
-    '@media(prefers-reduced-motion:reduce){.pp-panel,.pp-revealed .pp-result{animation:none}.pp-card,.pp-inner{transition:none!important}}' +
-    '.pp-instant,.pp-instant *{animation:none!important;transition:none!important}';
+    '@media(prefers-reduced-motion:reduce){.pp-panel,.pp-revealed .pp-result{animation:none}.pp-card,.pp-inner{transition:none!important}}';
 
-  function todayStr() {
-    var d = new Date(), m = d.getMonth() + 1, day = d.getDate();
-    return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
-  }
-  function hashStr(s) {
-    var h = 5381, i;
-    for (i = 0; i < s.length; i++) { h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
-    return h < 0 ? -h : h;
+  /* A fresh card every page load. The only thing we remember is the previous
+     card, so back-to-back refreshes never hand out the same patta twice. */
+  function pickFortune() {
+    var st = loadState();
+    var last = (st && typeof st.last === 'string') ? st.last : null;
+    var f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
+    if (last && FORTUNES.length > 1) {
+      var guard = 0;
+      while (f.n === last && guard++ < 12) {
+        f = FORTUNES[Math.floor(Math.random() * FORTUNES.length)];
+      }
+    }
+    saveState({ last: f.n });
+    return f;
   }
   function loadState() {
     try {
@@ -134,11 +141,7 @@
     if (!grid || !grid.parentElement) return;
     if (document.querySelector('.pp-panel')) return; /* never double-inject */
 
-    var today = todayStr();
-    var f = FORTUNES[hashStr(today + '|sukoon') % FORTUNES.length]; /* same daily card in all 3 */
-    var st = loadState();
-    var done = !!(st && st.drawn && st.date === today);
-    var pos = done ? ((typeof st.pos === 'number' && st.pos >= 0 && st.pos < 3) ? st.pos : 1) : -1;
+    var f = pickFortune(); /* same card behind all 3 backs, new one each load */
 
     if (!document.getElementById('pp-style')) {
       var style = document.createElement('style');
@@ -149,17 +152,17 @@
 
     var panel = el('div', 'pp-panel');
     panel.appendChild(el('h3', 'pp-title', 'Pick a Patta'));
-    panel.appendChild(el('p', 'pp-sub', 'Baithak ki rasam — ek patta, ek dua. Draw your card of the day.'));
+    panel.appendChild(el('p', 'pp-sub', 'Baithak ki rasam — ek patta, ek dua. Draw your card.'));
 
     var fan = el('div', 'pp-fan');
     fan.setAttribute('role', 'group');
-    fan.setAttribute('aria-label', 'Pick a Patta — once-daily card draw');
+    fan.setAttribute('aria-label', 'Pick a Patta — card draw');
     var cards = [];
     for (var i = 0; i < 3; i++) {
       var card = document.createElement('button');
       card.type = 'button';
       card.className = 'pp-card';
-      card.setAttribute('aria-label', 'Face-down patta — tap to draw your card of the day');
+      card.setAttribute('aria-label', 'Face-down patta — tap to draw your card');
       var inner = el('div', 'pp-inner');
       var back = el('div', 'pp-back');
       back.innerHTML = BACK_SVG;
@@ -182,11 +185,11 @@
     btn.rel = 'noopener';
     result.appendChild(prod);
     result.appendChild(btn);
-    result.appendChild(el('p', 'pp-note', 'Naya patta kal milega 🌙'));
+    result.appendChild(el('p', 'pp-note', 'Page refresh karein, naya patta milega 🌙'));
     panel.appendChild(result);
 
     var revealed = false;
-    function reveal(idx, persist) {
+    function reveal(idx) {
       if (revealed) return;
       revealed = true;
       cards.forEach(function (c, j) {
@@ -200,17 +203,11 @@
       });
       result.hidden = false;
       panel.classList.add('pp-revealed');
-      if (persist) saveState({ date: today, drawn: true, pos: idx });
     }
 
     cards.forEach(function (c, idx) {
-      c.addEventListener('click', function () { reveal(idx, true); });
+      c.addEventListener('click', function () { reveal(idx); });
     });
-
-    if (done) { /* same-day return: already flipped, no animations */
-      panel.classList.add('pp-instant');
-      reveal(pos, false);
-    }
 
     grid.insertAdjacentElement('afterend', panel); /* stays inside the same .container */
   }

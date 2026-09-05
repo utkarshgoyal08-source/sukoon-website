@@ -9,12 +9,16 @@
   'use strict';
 
   var LS_KEY = 'sukoon_diya_mode';
+  var LADI_KEY = 'sukoon_diya_ladi';
   var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   var mqCoarse = window.matchMedia ? window.matchMedia('(hover: none), (pointer: coarse)') : null;
   function reduced() { return !!(mqReduce && mqReduce.matches); }
   function coarse() { return !!(mqCoarse && mqCoarse.matches); }
   function readPref() { try { return localStorage.getItem(LS_KEY); } catch (e) { return null; } }
   function savePref(v) { try { localStorage.setItem(LS_KEY, v); } catch (e) { /* private mode: ignore */ } }
+  function readLadi() { try { return localStorage.getItem(LADI_KEY); } catch (e) { return null; } }
+  function saveLadi(v) { try { localStorage.setItem(LADI_KEY, v); } catch (e) { /* private mode: ignore */ } }
+  function elc(tag, cls) { var n = document.createElement(tag); n.className = cls; return n; }
 
   var CSS = [
     /* toggle button: stacks above the Diya Basket FAB (bottom:24px) */
@@ -50,8 +54,59 @@
     '  font-size:1.15rem;letter-spacing:.4px;text-align:center;max-width:88vw;',
     '  box-shadow:0 10px 36px rgba(0,0,0,.5);opacity:0;transition:opacity .45s ease,transform .45s ease}',
     '.dm-hint.dm-hint-in{opacity:1;transform:translate(-50%,-50%) scale(1)}',
-    '@media(prefers-reduced-motion:reduce){.dm-toggle.dm-active{animation:none}}'
+    '@media(prefers-reduced-motion:reduce){.dm-toggle.dm-active{animation:none}}',
+    /* ---- the "ladi": a hanging string of crackers that lights the room ---- */
+    '.dm-ladi{position:fixed;top:86px;right:26px;z-index:995;border:0;background:none;padding:0;cursor:pointer;',
+    '  display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(-18px);',
+    '  transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.28,.64,1)}',
+    '.dm-ladi.dm-ladi-in{opacity:1;transform:none}',
+    '.dm-ladi:focus-visible{outline:2px solid #E8D5A3;outline-offset:6px;border-radius:10px}',
+    '.dm-ladi-rope{display:flex;flex-direction:column;align-items:center;gap:3px;transform-origin:top center;',
+    '  animation:dm-sway 3.8s ease-in-out infinite}',
+    '@media(hover:hover){.dm-ladi:hover .dm-ladi-rope{animation-duration:1.6s}}',
+    '@keyframes dm-sway{0%,100%{transform:rotate(-2.4deg)}50%{transform:rotate(2.4deg)}}',
+    '.dm-ladi-str{width:2px;height:22px;background:linear-gradient(#8B7355,#6b5942)}',
+    '.dm-cr{position:relative;width:13px;height:25px;border-radius:3px;',
+    '  background:linear-gradient(90deg,#8d1c21 0%,#d3372e 45%,#a91f26 100%);',
+    '  box-shadow:inset -2px 0 3px rgba(0,0,0,.32)}',
+    '.dm-cr::after{content:"";position:absolute;left:0;right:0;top:9px;height:5px;',
+    '  background:linear-gradient(#e8d5a3,#c9a84c)}',
+    '.dm-ladi-fuse{width:2px;height:15px;background:linear-gradient(#6b5942,#C9A84C)}',
+    /* caption + curved arrow, sitting to the left of the string */
+    '.dm-ladi-tag{position:fixed;top:112px;right:74px;z-index:995;pointer-events:none;display:flex;',
+    '  align-items:center;gap:2px;color:#C9A84C;font-family:"Cormorant Garamond",Georgia,serif;',
+    '  font-style:italic;font-size:1.12rem;letter-spacing:.3px;white-space:nowrap;opacity:0;',
+    '  transform:translateX(10px);transition:opacity .6s ease .3s,transform .6s ease .3s}',
+    '.dm-ladi-tag.dm-ladi-in{opacity:1;transform:none}',
+    '.dm-ladi-tag svg{display:block;flex:none}',
+    /* firing */
+    '.dm-ladi-firing{pointer-events:none}',
+    '.dm-ladi-firing .dm-ladi-rope{animation:dm-shake .11s linear infinite}',
+    '@keyframes dm-shake{0%,100%{transform:translateX(-1.6px) rotate(-1deg)}',
+    '  50%{transform:translateX(1.6px) rotate(1deg)}}',
+    '.dm-cr-pop{animation:dm-pop .42s ease both}',
+    '@keyframes dm-pop{0%{transform:scale(1)}22%{transform:scale(1.55);filter:brightness(3.2) saturate(.2)}',
+    '  100%{transform:scale(.2);opacity:0}}',
+    '.dm-spark{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#FFDC95;',
+    '  box-shadow:0 0 7px #FFC24D;pointer-events:none;animation:dm-spark .6s ease-out both}',
+    '@keyframes dm-spark{0%{transform:translate(-50%,-50%) scale(1);opacity:1}',
+    '  100%{transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(.2);opacity:0}}',
+    '.dm-flash{position:fixed;inset:0;z-index:994;pointer-events:none;',
+    '  background:radial-gradient(circle at 90% 20%,rgba(255,216,145,.8),rgba(255,170,60,.28) 32%,transparent 60%);',
+    '  animation:dm-flash .6s ease-out both}',
+    '@keyframes dm-flash{0%{opacity:0}16%{opacity:1}100%{opacity:0}}',
+    '@media(max-width:600px){.dm-ladi{top:74px;right:14px}.dm-cr{width:11px;height:21px}',
+    '  .dm-ladi-tag{top:96px;right:56px;font-size:.98rem}}',
+    '@media(prefers-reduced-motion:reduce){.dm-ladi-rope{animation:none}.dm-ladi{transition:opacity .4s ease}}'
   ].join('\n');
+
+  var ARROW =
+    '<svg viewBox="0 0 44 30" width="44" height="30" aria-hidden="true" focusable="false">' +
+    '<path d="M2 24C10 26 26 24 33 9" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+    'stroke-linecap="round" stroke-dasharray="3 3.5"/>' +
+    '<path d="M27 10.5 33.5 7 35 14" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+    'stroke-linecap="round" stroke-linejoin="round"/>' +
+    '</svg>';
 
   var GLYPH =
     '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">' +
@@ -137,11 +192,11 @@
     window.addEventListener('touchend', function () { touchActive = false; lastInput = performance.now(); }, { passive: true });
     window.addEventListener('touchcancel', function () { touchActive = false; lastInput = performance.now(); }, { passive: true });
 
-    function showHint() {
+    function showHint(text) {
       var chip = document.createElement('div');
       chip.className = 'dm-hint';
       chip.setAttribute('aria-hidden', 'true');
-      chip.textContent = 'Raat ho gayi… apni roshni le aao 🕯️';
+      chip.textContent = text || 'Raat ho gayi… apni roshni le aao 🕯️';
       document.body.appendChild(chip);
       requestAnimationFrame(function () {
         requestAnimationFrame(function () { chip.classList.add('dm-hint-in'); });
@@ -231,8 +286,101 @@
       deactivate();
     }, true); /* capture: run before lightbox/basket handlers consume state */
 
+    /* ---- the ladi: an invitation nobody can miss ----------------------
+       A string of crackers hangs into the top-right corner behind a curved
+       arrow reading "Click for Roshni". Clicking it pops the crackers
+       bottom-to-top and drops the page into Diya Mode. Shown once per
+       visitor - after that, the moon toggle is the control. */
+    var ladi = null, ladiTag = null, ladiFired = false;
+
+    function removeLadi() {
+      [ladi, ladiTag].forEach(function (n) {
+        if (!n) return;
+        n.classList.remove('dm-ladi-in');
+        setTimeout(function () { if (n.parentNode) n.parentNode.removeChild(n); }, 650);
+      });
+      ladi = ladiTag = null;
+    }
+
+    function burstAt(cracker) {
+      for (var k = 0; k < 5; k++) {
+        var sp = elc('span', 'dm-spark');
+        var a = (Math.PI * 2 * k) / 5 + Math.random();
+        var d = 16 + Math.random() * 20;
+        sp.style.setProperty('--sx', (Math.cos(a) * d).toFixed(1) + 'px');
+        sp.style.setProperty('--sy', (Math.sin(a) * d).toFixed(1) + 'px');
+        sp.style.animationDelay = (Math.random() * 0.06).toFixed(2) + 's';
+        cracker.appendChild(sp);
+      }
+    }
+
+    function lightTheRoom() {
+      activate(true);
+      showHint('Roshni on 🪔 — chaand se kabhi bhi band karein');
+      removeLadi();
+    }
+
+    function fireLadi() {
+      if (ladiFired) return;
+      ladiFired = true;
+      saveLadi('done');
+      if (ladiTag) ladiTag.classList.remove('dm-ladi-in');
+
+      if (reduced()) { lightTheRoom(); return; } /* no bangs: just light the room */
+
+      ladi.classList.add('dm-ladi-firing');
+      var crackers = [].slice.call(ladi.querySelectorAll('.dm-cr')).reverse(); /* fuse end first */
+      crackers.forEach(function (c, i) {
+        setTimeout(function () { c.classList.add('dm-cr-pop'); burstAt(c); }, i * 95);
+      });
+
+      setTimeout(function () { /* the bang that lights the room */
+        var flash = elc('div', 'dm-flash');
+        flash.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(flash);
+        setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
+        lightTheRoom();
+      }, crackers.length * 95);
+    }
+
+    function buildLadi() {
+      if (ladi || on) return;
+
+      ladi = document.createElement('button');
+      ladi.type = 'button';
+      ladi.className = 'dm-ladi';
+      ladi.setAttribute('aria-label', 'Light the ladi and turn on Diya Mode');
+
+      var rope = elc('div', 'dm-ladi-rope');
+      rope.appendChild(elc('span', 'dm-ladi-str'));
+      for (var i = 0; i < 9; i++) rope.appendChild(elc('span', 'dm-cr'));
+      rope.appendChild(elc('span', 'dm-ladi-fuse'));
+      ladi.appendChild(rope);
+      ladi.addEventListener('click', fireLadi);
+
+      ladiTag = elc('div', 'dm-ladi-tag');
+      ladiTag.setAttribute('aria-hidden', 'true');
+      ladiTag.appendChild(document.createTextNode('Click for Roshni'));
+      ladiTag.insertAdjacentHTML('beforeend', ARROW);
+
+      document.body.appendChild(ladi);
+      document.body.appendChild(ladiTag);
+
+      function showLadi() { /* rAF can be throttled in a background tab; the timer is the backstop */
+        if (!ladi) return;
+        ladi.classList.add('dm-ladi-in');
+        ladiTag.classList.add('dm-ladi-in');
+      }
+      requestAnimationFrame(function () { requestAnimationFrame(showLadi); });
+      setTimeout(showLadi, 120);
+    }
+
+    /* found the moon on their own: the ladi has done its job */
+    btn.addEventListener('click', function () { saveLadi('done'); removeLadi(); });
+
     /* restore saved preference, quietly (no hint) */
     if (readPref() === 'on') activate(true);
+    else if (readLadi() !== 'done') setTimeout(buildLadi, 1100);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
