@@ -9,7 +9,7 @@
   'use strict';
 
   var LS_KEY = 'sukoon_diya_mode';
-  var LADI_KEY = 'sukoon_diya_ladi';
+  var LADI_KEY = 'sukoon_diya_ladi_v2';
   var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   var mqCoarse = window.matchMedia ? window.matchMedia('(hover: none), (pointer: coarse)') : null;
   function reduced() { return !!(mqReduce && mqReduce.matches); }
@@ -55,58 +55,55 @@
     '  box-shadow:0 10px 36px rgba(0,0,0,.5);opacity:0;transition:opacity .45s ease,transform .45s ease}',
     '.dm-hint.dm-hint-in{opacity:1;transform:translate(-50%,-50%) scale(1)}',
     '@media(prefers-reduced-motion:reduce){.dm-toggle.dm-active{animation:none}}',
-    /* ---- the "ladi": a hanging string of crackers that lights the room ---- */
-    '.dm-ladi{position:fixed;top:86px;right:26px;z-index:995;border:0;background:none;padding:0;cursor:pointer;',
-    '  display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(-18px);',
-    '  transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.28,.64,1)}',
-    '.dm-ladi.dm-ladi-in{opacity:1;transform:none}',
-    '.dm-ladi:focus-visible{outline:2px solid #E8D5A3;outline-offset:6px;border-radius:10px}',
-    '.dm-ladi-rope{display:flex;flex-direction:column;align-items:center;gap:3px;transform-origin:top center;',
-    '  animation:dm-sway 3.8s ease-in-out infinite}',
-    '@media(hover:hover){.dm-ladi:hover .dm-ladi-rope{animation-duration:1.6s}}',
-    '@keyframes dm-sway{0%,100%{transform:rotate(-2.4deg)}50%{transform:rotate(2.4deg)}}',
-    '.dm-ladi-str{width:2px;height:22px;background:linear-gradient(#8B7355,#6b5942)}',
-    '.dm-cr{position:relative;width:13px;height:25px;border-radius:3px;',
+    /* ---- the Roshni dock: ladi + moon + label, bottom-left ---------------
+       The toggle keeps its own fixed position; the ladi hangs directly above
+       it and the label sits beside it, so the three read as one control. */
+    '.dm-ladi{position:fixed;left:42px;bottom:74px;z-index:991;transform:translateX(-50%) translateY(-14px);',
+    '  border:0;background:none;padding:6px 8px 0;cursor:pointer;display:flex;flex-direction:column;',
+    '  align-items:center;opacity:0;transition:opacity .55s ease,transform .6s cubic-bezier(.34,1.28,.64,1)}',
+    '.dm-ladi.dm-in{opacity:1;transform:translateX(-50%)}',
+    '.dm-ladi:focus-visible{outline:2px solid #E8D5A3;outline-offset:4px;border-radius:8px}',
+    '.dm-rope{display:flex;flex-direction:column;align-items:center;gap:3px;transform-origin:top center;',
+    '  animation:dm-sway 3.6s ease-in-out infinite}',
+    '@media(hover:hover){.dm-ladi:hover .dm-rope{animation-duration:1.5s}}',
+    '@keyframes dm-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}',
+    '.dm-cr{position:relative;width:11px;height:20px;border-radius:3px;',
     '  background:linear-gradient(90deg,#8d1c21 0%,#d3372e 45%,#a91f26 100%);',
     '  box-shadow:inset -2px 0 3px rgba(0,0,0,.32)}',
-    '.dm-cr::after{content:"";position:absolute;left:0;right:0;top:9px;height:5px;',
+    '.dm-cr::after{content:"";position:absolute;left:0;right:0;top:7px;height:4px;',
     '  background:linear-gradient(#e8d5a3,#c9a84c)}',
-    '.dm-ladi-fuse{width:2px;height:15px;background:linear-gradient(#6b5942,#C9A84C)}',
-    /* caption + curved arrow, sitting to the left of the string */
-    '.dm-ladi-tag{position:fixed;top:112px;right:74px;z-index:995;pointer-events:none;display:flex;',
-    '  align-items:center;gap:2px;color:#C9A84C;font-family:"Cormorant Garamond",Georgia,serif;',
-    '  font-style:italic;font-size:1.12rem;letter-spacing:.3px;white-space:nowrap;opacity:0;',
-    '  transform:translateX(10px);transition:opacity .6s ease .3s,transform .6s ease .3s}',
-    '.dm-ladi-tag.dm-ladi-in{opacity:1;transform:none}',
-    '.dm-ladi-tag svg{display:block;flex:none}',
+    '.dm-fuse{width:2px;height:12px;background:linear-gradient(#6b5942,#C9A84C)}',
+    /* label beside the moon - the control is never unexplained */
+    '.dm-label{position:fixed;left:74px;bottom:33px;z-index:991;pointer-events:none;',
+    '  display:flex;align-items:center;gap:7px;padding:6px 13px;border-radius:50px;',
+    '  background:rgba(44,62,80,.94);border:1px solid rgba(201,168,76,.42);color:#E8D5A3;',
+    '  font-family:"Outfit","Segoe UI",sans-serif;font-size:.68rem;font-weight:600;letter-spacing:1.3px;',
+    '  text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.24);',
+    '  opacity:0;transform:translateX(-8px);transition:opacity .5s ease .25s,transform .5s ease .25s}',
+    '.dm-label.dm-in{opacity:1;transform:none}',
+    '.dm-label b{color:#C9A84C;font-weight:600}',
+    '.dm-label.dm-calm{background:rgba(44,62,80,.72);font-size:.62rem;letter-spacing:1.1px;padding:5px 11px}',
     /* firing */
     '.dm-ladi-firing{pointer-events:none}',
-    '.dm-ladi-firing .dm-ladi-rope{animation:dm-shake .11s linear infinite}',
-    '@keyframes dm-shake{0%,100%{transform:translateX(-1.6px) rotate(-1deg)}',
-    '  50%{transform:translateX(1.6px) rotate(1deg)}}',
-    '.dm-cr-pop{animation:dm-pop .42s ease both}',
-    '@keyframes dm-pop{0%{transform:scale(1)}22%{transform:scale(1.55);filter:brightness(3.2) saturate(.2)}',
+    '.dm-ladi-firing .dm-rope{animation:dm-shake .1s linear infinite}',
+    '@keyframes dm-shake{0%,100%{transform:translateX(-1.5px) rotate(-1deg)}',
+    '  50%{transform:translateX(1.5px) rotate(1deg)}}',
+    '.dm-cr-pop{animation:dm-pop .4s ease both}',
+    '@keyframes dm-pop{0%{transform:scale(1)}22%{transform:scale(1.6);filter:brightness(3.2) saturate(.2)}',
     '  100%{transform:scale(.2);opacity:0}}',
     '.dm-spark{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#FFDC95;',
-    '  box-shadow:0 0 7px #FFC24D;pointer-events:none;animation:dm-spark .6s ease-out both}',
+    '  box-shadow:0 0 7px #FFC24D;pointer-events:none;animation:dm-spark .55s ease-out both}',
     '@keyframes dm-spark{0%{transform:translate(-50%,-50%) scale(1);opacity:1}',
     '  100%{transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(.2);opacity:0}}',
-    '.dm-flash{position:fixed;inset:0;z-index:994;pointer-events:none;',
-    '  background:radial-gradient(circle at 90% 20%,rgba(255,216,145,.8),rgba(255,170,60,.28) 32%,transparent 60%);',
+    '.dm-flash{position:fixed;inset:0;z-index:989;pointer-events:none;',
+    '  background:radial-gradient(circle at 6% 88%,rgba(255,216,145,.85),rgba(255,170,60,.3) 30%,transparent 58%);',
     '  animation:dm-flash .6s ease-out both}',
     '@keyframes dm-flash{0%{opacity:0}16%{opacity:1}100%{opacity:0}}',
-    '@media(max-width:600px){.dm-ladi{top:74px;right:14px}.dm-cr{width:11px;height:21px}',
-    '  .dm-ladi-tag{top:96px;right:56px;font-size:.98rem}}',
-    '@media(prefers-reduced-motion:reduce){.dm-ladi-rope{animation:none}.dm-ladi{transition:opacity .4s ease}}'
+    '@media(max-width:480px){.dm-ladi{left:38px;bottom:74px}.dm-label{left:68px;bottom:33px;font-size:.62rem}',
+    '  .dm-cr:nth-of-type(n+5){display:none}}',
+    '@media(prefers-reduced-motion:reduce){.dm-toggle.dm-active{animation:none}',
+    '  .dm-rope{animation:none}.dm-ladi{transition:opacity .4s ease}}'
   ].join('\n');
-
-  var ARROW =
-    '<svg viewBox="0 0 44 30" width="44" height="30" aria-hidden="true" focusable="false">' +
-    '<path d="M2 24C10 26 26 24 33 9" fill="none" stroke="currentColor" stroke-width="1.6" ' +
-    'stroke-linecap="round" stroke-dasharray="3 3.5"/>' +
-    '<path d="M27 10.5 33.5 7 35 14" fill="none" stroke="currentColor" stroke-width="1.6" ' +
-    'stroke-linecap="round" stroke-linejoin="round"/>' +
-    '</svg>';
 
   var GLYPH =
     '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">' +
@@ -214,6 +211,7 @@
       document.body.classList.add('dm-on');
       btn.classList.add('dm-active');
       btn.setAttribute('aria-pressed', 'true');
+      setLabel();
       suspended = false;
       overlay.classList.remove('dm-suspended');
       if (!overlay.parentNode) document.body.appendChild(overlay);
@@ -234,6 +232,7 @@
       document.body.classList.remove('dm-on');
       btn.classList.remove('dm-active');
       btn.setAttribute('aria-pressed', 'false');
+      setLabel();
       overlay.classList.remove('dm-visible');
       stopLoop();
       removeTimer = setTimeout(function () { /* fade 500ms, then remove from DOM */
@@ -286,27 +285,48 @@
       deactivate();
     }, true); /* capture: run before lightbox/basket handlers consume state */
 
-    /* ---- the ladi: an invitation nobody can miss ----------------------
-       A string of crackers hangs into the top-right corner behind a curved
-       arrow reading "Click for Roshni". Clicking it pops the crackers
-       bottom-to-top and drops the page into Diya Mode. Shown once per
-       visitor - after that, the moon toggle is the control. */
-    var ladi = null, ladiTag = null, ladiFired = false;
+    /* ---- the Roshni dock -----------------------------------------------
+       Diya Mode used to be an unlabelled moon in the corner. Now a short
+       ladi hangs just above it with its fuse pointing down into it, and a
+       label sits alongside. Light the ladi and the crackers run up the
+       string, the corner flares, and the room goes dark around the candles.
+       The ladi retires after one use; the label stays for good, so the
+       moon is never a mystery button again. */
+    var ladi = null, label = null, ladiFired = false;
 
-    function removeLadi() {
-      [ladi, ladiTag].forEach(function (n) {
-        if (!n) return;
-        n.classList.remove('dm-ladi-in');
-        setTimeout(function () { if (n.parentNode) n.parentNode.removeChild(n); }, 650);
-      });
-      ladi = ladiTag = null;
+    function setLabel() {
+      if (!label) return;
+      if (ladi && !ladiFired) return;              /* invitation still standing */
+      label.classList.add('dm-calm');
+      label.textContent = on ? 'Roshni on' : 'Roshni';
+    }
+
+    function buildLabel() {
+      label = elc('div', 'dm-label');
+      label.setAttribute('aria-hidden', 'true');   /* the button carries the real name */
+      document.body.appendChild(label);
+      if (readLadi() === 'done' || on) {
+        setLabel();
+      } else {
+        label.appendChild(document.createTextNode('Click for '));
+        label.appendChild(elc('b', '')).textContent = 'Roshni';
+      }
+    }
+
+    function retireLadi() {
+      if (!ladi) return;
+      var node = ladi;
+      ladi = null;
+      node.classList.remove('dm-in');
+      setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 600);
+      setLabel();
     }
 
     function burstAt(cracker) {
       for (var k = 0; k < 5; k++) {
         var sp = elc('span', 'dm-spark');
         var a = (Math.PI * 2 * k) / 5 + Math.random();
-        var d = 16 + Math.random() * 20;
+        var d = 14 + Math.random() * 18;
         sp.style.setProperty('--sx', (Math.cos(a) * d).toFixed(1) + 'px');
         sp.style.setProperty('--sy', (Math.sin(a) * d).toFixed(1) + 'px');
         sp.style.animationDelay = (Math.random() * 0.06).toFixed(2) + 's';
@@ -314,73 +334,61 @@
       }
     }
 
-    function lightTheRoom() {
-      activate(true);
-      showHint('Roshni on 🪔 — chaand se kabhi bhi band karein');
-      removeLadi();
-    }
-
     function fireLadi() {
-      if (ladiFired) return;
+      if (ladiFired || !ladi) return;
       ladiFired = true;
       saveLadi('done');
-      if (ladiTag) ladiTag.classList.remove('dm-ladi-in');
 
-      if (reduced()) { lightTheRoom(); return; } /* no bangs: just light the room */
+      if (reduced()) { retireLadi(); activate(true); return; }
 
       ladi.classList.add('dm-ladi-firing');
-      var crackers = [].slice.call(ladi.querySelectorAll('.dm-cr')).reverse(); /* fuse end first */
+      /* the fuse hangs at the bottom, so the string burns upward from it */
+      var crackers = [].slice.call(ladi.querySelectorAll('.dm-cr')).reverse();
       crackers.forEach(function (c, i) {
-        setTimeout(function () { c.classList.add('dm-cr-pop'); burstAt(c); }, i * 95);
+        setTimeout(function () { c.classList.add('dm-cr-pop'); burstAt(c); }, i * 90);
       });
 
-      setTimeout(function () { /* the bang that lights the room */
+      setTimeout(function () {
         var flash = elc('div', 'dm-flash');
         flash.setAttribute('aria-hidden', 'true');
         document.body.appendChild(flash);
         setTimeout(function () { if (flash.parentNode) flash.parentNode.removeChild(flash); }, 700);
-        lightTheRoom();
-      }, crackers.length * 95);
+        activate(true);
+        retireLadi();
+      }, crackers.length * 90);
     }
 
     function buildLadi() {
       if (ladi || on) return;
-
       ladi = document.createElement('button');
       ladi.type = 'button';
       ladi.className = 'dm-ladi';
       ladi.setAttribute('aria-label', 'Light the ladi and turn on Diya Mode');
 
-      var rope = elc('div', 'dm-ladi-rope');
-      rope.appendChild(elc('span', 'dm-ladi-str'));
-      for (var i = 0; i < 9; i++) rope.appendChild(elc('span', 'dm-cr'));
-      rope.appendChild(elc('span', 'dm-ladi-fuse'));
+      var rope = elc('div', 'dm-rope');
+      for (var i = 0; i < 6; i++) rope.appendChild(elc('span', 'dm-cr'));
+      rope.appendChild(elc('span', 'dm-fuse'));   /* fuse points down at the moon */
       ladi.appendChild(rope);
       ladi.addEventListener('click', fireLadi);
-
-      ladiTag = elc('div', 'dm-ladi-tag');
-      ladiTag.setAttribute('aria-hidden', 'true');
-      ladiTag.appendChild(document.createTextNode('Click for Roshni'));
-      ladiTag.insertAdjacentHTML('beforeend', ARROW);
-
       document.body.appendChild(ladi);
-      document.body.appendChild(ladiTag);
 
-      function showLadi() { /* rAF can be throttled in a background tab; the timer is the backstop */
-        if (!ladi) return;
-        ladi.classList.add('dm-ladi-in');
-        ladiTag.classList.add('dm-ladi-in');
-      }
-      requestAnimationFrame(function () { requestAnimationFrame(showLadi); });
-      setTimeout(showLadi, 120);
+      function show() { if (ladi) ladi.classList.add('dm-in'); }
+      requestAnimationFrame(function () { requestAnimationFrame(show); });
+      setTimeout(show, 120);   /* rAF is throttled in a background tab */
     }
 
+    buildLabel();
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { if (label) label.classList.add('dm-in'); });
+    });
+    setTimeout(function () { if (label) label.classList.add('dm-in'); }, 140);
+
     /* found the moon on their own: the ladi has done its job */
-    btn.addEventListener('click', function () { saveLadi('done'); removeLadi(); });
+    btn.addEventListener('click', function () { saveLadi('done'); ladiFired = true; retireLadi(); });
 
     /* restore saved preference, quietly (no hint) */
     if (readPref() === 'on') activate(true);
-    else if (readLadi() !== 'done') setTimeout(buildLadi, 1100);
+    else if (readLadi() !== 'done') setTimeout(buildLadi, 900);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
