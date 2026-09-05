@@ -56,7 +56,7 @@
        The toggle keeps its own fixed position; the ladi hangs directly above
        it and the label sits beside it, so the three read as one control. */
     '.dm-ladi{position:fixed;left:42px;bottom:72px;z-index:991;transform:translateX(-50%) translateY(-14px);',
-    '  border:0;background:none;padding:6px 8px 0;cursor:pointer;display:flex;flex-direction:column;',
+    '  border:0;background:none;padding:8px 14px 0;cursor:pointer;display:flex;flex-direction:column;',
     '  align-items:center;opacity:0;transition:opacity .55s ease,transform .6s cubic-bezier(.34,1.28,.64,1)}',
     '.dm-ladi.dm-in{opacity:1;transform:translateX(-50%)}',
     '.dm-ladi:focus-visible{outline:2px solid #E8D5A3;outline-offset:4px;border-radius:8px}',
