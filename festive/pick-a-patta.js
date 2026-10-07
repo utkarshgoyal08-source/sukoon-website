@@ -12,18 +12,18 @@
 
   /* rank+suit, red?, blessing (Hinglish), matched product */
   var FORTUNES = [
-    { n: 'Queen of Hearts',   r: 'Q', s: '♥', red: true,  b: 'Jahan aap baithte hain, wahin baithak sajti hai. Har kona pyaar se roshan rahe.', p: 'Floral Urli Tray' },
-    { n: 'King of Hearts',    r: 'K', s: '♥', red: true,  b: 'Dil ke raja wahi, jo har mehmaan ko apna bana le. Aapki chai, aapki dua — dono khaas.', p: 'Hand-Painted Kulhad' },
+    { n: 'Queen of Hearts',   r: 'Q', s: '♥', red: true,  b: 'Jahan aap baithte hain, wahin baithak sajti hai. Har kona pyaar se roshan rahe.', p: 'Golden Bloom Urli' },
+    { n: 'King of Hearts',    r: 'K', s: '♥', red: true,  b: 'Dil ke raja wahi, jo har mehmaan ko apna bana le. Aapki chai, aapki dua — dono khaas.', p: 'Hand-Painted Pot' },
     { n: 'Ace of Hearts',     r: 'A', s: '♥', red: true,  b: 'Ek dil, ek dua — mithaas aapke ghar ki pehli mehmaan bane.', p: 'Motichoor Laddoo' },
-    { n: 'Ace of Diamonds',   r: 'A', s: '♦', red: true,  b: 'Pehla diya aapke naam. Laxmi ji wahin rukti hain jahan roshni saaf dil se jalti hai.', p: 'Brass Diya Candle' },
+    { n: 'Ace of Diamonds',   r: 'A', s: '♦', red: true,  b: 'Pehla diya aapke naam. Laxmi ji wahin rukti hain jahan roshni saaf dil se jalti hai.', p: 'Metal Diya' },
     { n: 'Queen of Diamonds', r: 'Q', s: '♦', red: true,  b: 'Kamal par Laxmi virajti hain — aur is saal unki kripa-drishti aap par hai.', p: 'Kamal Tin Candle' },
-    { n: 'King of Diamonds',  r: 'K', s: '♦', red: true,  b: 'Asli sona wahi jo mehnat se khilta hai. Is Diwali genda bhi sona lagega.', p: 'Marigold Goblet Candle' },
-    { n: 'Jack of Clubs',     r: 'J', s: '♣', red: false, b: 'Yaaron ki mehfil ki jaan aap hi hain — patte bhi aapki taraf muskurayenge.', p: 'Taash Card Candle' },
-    { n: 'Queen of Clubs',    r: 'Q', s: '♣', red: false, b: 'Dosti wahi jo har baazi mein saath de. Aapki baithak is saal sabse roshan hogi.', p: 'Marigold Coaster Candle' },
-    { n: 'King of Clubs',     r: 'K', s: '♣', red: false, b: 'Mehfil ke raja aap — jab tak aap table par hain, har baazi ek jashn hai.', p: 'Taash Suit Candle' },
-    { n: 'Ace of Spades',     r: 'A', s: '♠', red: false, b: 'Sabse ooncha patta aapke haath — naye faisle, nayi himmat, ghungroo si khanak.', p: 'Brass Dabba Candle' },
-    { n: 'Queen of Spades',   r: 'Q', s: '♠', red: false, b: 'Aapki shaanti hi aapki taaqat hai. Purana pighlne dijiye, naya rang khud chadhega.', p: 'Hobnail Jar Candle' },
-    { n: 'King of Spades',    r: 'K', s: '♠', red: false, b: 'Chand ki tarah shaant chamakte rahiye — halki roshni bhi andhere par bhaari hai. Shubh aarambh.', p: 'Gol Tealight Holder' }
+    { n: 'King of Diamonds',  r: 'K', s: '♦', red: true,  b: 'Asli sona wahi jo mehnat se khilta hai. Is Diwali genda bhi sona lagega.', p: 'Marigold Lamp Jar' },
+    { n: 'Jack of Clubs',     r: 'J', s: '♣', red: false, b: 'Yaaron ki mehfil ki jaan aap hi hain — patte bhi aapki taraf muskurayenge.', p: 'Taash Card Urli' },
+    { n: 'Queen of Clubs',    r: 'Q', s: '♣', red: false, b: 'Dosti wahi jo har baazi mein saath de. Aapki baithak is saal sabse roshan hogi.', p: 'Marigold Urli' },
+    { n: 'King of Clubs',     r: 'K', s: '♣', red: false, b: 'Mehfil ke raja aap — jab tak aap table par hain, har baazi ek jashn hai.', p: 'Taash Suit Urli' },
+    { n: 'Ace of Spades',     r: 'A', s: '♠', red: false, b: 'Sabse ooncha patta aapke haath — naye faisle, nayi himmat, ghungroo si khanak.', p: 'Hammered Dabba Candle' },
+    { n: 'Queen of Spades',   r: 'Q', s: '♠', red: false, b: 'Aapki shaanti hi aapki taaqat hai. Purana pighlne dijiye, naya rang khud chadhega.', p: 'Textured Glass Jar' },
+    { n: 'King of Spades',    r: 'K', s: '♠', red: false, b: 'Chand ki tarah shaant chamakte rahiye — halki roshni bhi andhere par bhaari hai. Shubh aarambh.', p: 'Gol Marble Diya' }
   ];
 
   /* Ornamental card back: gold frame, corner curls, diya + paisley motif */

@@ -45,6 +45,8 @@
     'body.db-bar-on .back-to-top{bottom:168px!important}'+
     'body.db-bar-on .dm-toggle{bottom:92px!important}'+
     'body.db-bar-on .pd-chip{bottom:88px!important}'+
+    'body.db-bar-on .dm-label{bottom:101px!important}'+
+    'body.db-bar-on .dm-ladi{bottom:140px!important}'+
     /* --- desktop nav entry --- */
     '.db-nav{display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:none;border:none;padding:0;'+
       'font-family:Outfit,sans-serif;font-size:.85rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;'+
@@ -70,6 +72,16 @@
     '.db-name{font-family:Outfit,sans-serif;font-size:.85rem;color:#2C3E50;font-weight:400}'+
     '.db-chap{display:block;font-family:Outfit,sans-serif;font-size:.6rem;letter-spacing:1.5px;'+
       'text-transform:uppercase;color:#C9A84C;font-weight:600;margin-top:2px}'+
+    '.db-row>div:first-child{flex:1;min-width:0}'+
+    '.db-qty{display:inline-flex;align-items:center;flex-shrink:0;border:1px solid #E8D5A3;border-radius:50px;background:#fff}'+
+    '.db-qty button{width:30px;height:30px;border:none;background:none;color:#2C3E50;font-size:1rem;line-height:1;cursor:pointer;padding:0}'+
+    '.db-qty button:disabled{color:#d8cbb0;cursor:default}'+
+    '.db-qty b{min-width:18px;text-align:center;font-family:Outfit,sans-serif;font-size:.8rem;font-weight:600;color:#2C3E50}'+
+    '.db-amt{flex-shrink:0;min-width:52px;text-align:right;font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:600;color:#2C3E50}'+
+    '.db-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;padding-top:10px;border-top:1.5px solid #C9A84C;'+
+      'font-family:Outfit,sans-serif;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;color:#8B7355;font-weight:600}'+
+    '.db-total[hidden]{display:none}'+
+    '.db-total b{font-family:"Cormorant Garamond",serif;font-size:1.35rem;letter-spacing:0;text-transform:none;color:#2C3E50}'+
     '.db-remove{width:40px;height:40px;flex-shrink:0;border:none;background:none;color:#8B7355;font-size:1rem;'+
       'cursor:pointer;display:flex;align-items:center;justify-content:center}'+
     '.db-empty{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1rem;color:#8B7355;'+
@@ -99,6 +111,8 @@
       'body.db-bar-on .back-to-top{bottom:150px!important}'+
       'body.db-bar-on .dm-toggle{bottom:150px!important}'+
       'body.db-bar-on .pd-chip{bottom:82px!important}'+
+      'body.db-bar-on .dm-label{bottom:159px!important}'+
+      'body.db-bar-on .dm-ladi{bottom:200px!important}'+
       '.db-panel{left:0;right:0;top:auto;bottom:0;transform:none;width:100%;max-width:none;'+
         'border-radius:18px 18px 0 0;padding:22px 20px calc(18px + env(safe-area-inset-bottom,0px))}}';
     var style=document.createElement('style');
@@ -106,7 +120,7 @@
     document.head.appendChild(style);
 
     /* ---------- state ---------- */
-    var basket=[]; // [{name, chapter}]
+    var basket=[]; // [{name, chapter, price, qty}]
     try{
       var raw=localStorage.getItem(LS_KEY);
       var parsed=raw?JSON.parse(raw):[];
@@ -114,6 +128,11 @@
     }catch(e){ basket=[]; }
     function persist(){ try{ localStorage.setItem(LS_KEY,JSON.stringify(basket)); }catch(e){} }
     function inBasket(name){ return basket.some(function(it){return it.name===name;}); }
+    function qtyOf(it){ var q=parseInt(it.qty,10); return q>0?Math.min(q,99):1; }
+    function rs(n){ return '\u20B9'+Number(n||0).toLocaleString('en-IN'); }
+    function pieces(){ return basket.reduce(function(t,it){return t+qtyOf(it);},0); }
+    function subtotal(){ return basket.reduce(function(t,it){return t+(it.price||0)*qtyOf(it);},0); }
+    var catalog={}; // name -> {price, chapter}, read from the cards
 
     var reduceMotion=false;
     try{ reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
@@ -130,6 +149,8 @@
       var section=card.closest('section.cat-block');
       var h2=section?section.querySelector('.cat-head h2'):null;
       var chapter=h2?(h2.textContent||'').trim():"Diwali'26";
+      var price=parseInt(card.getAttribute('data-price'),10)||0;
+      catalog[name]={price:price,chapter:chapter};
 
       var actions=document.createElement('div');
       actions.className='db-actions';
@@ -150,7 +171,7 @@
         if(inBasket(name)){
           basket=basket.filter(function(it){return it.name!==name;});
         }else{
-          basket.push({name:name,chapter:chapter});
+          basket.push({name:name,chapter:chapter,price:price,qty:1});
           if(!reduceMotion){
             btn.classList.remove('db-pop');
             void btn.offsetWidth;
@@ -164,13 +185,19 @@
       toggles[name]=btn;
     });
 
+    /* old baskets may hold names that were renamed since; keep only live pieces, at today's price */
+    basket=basket.filter(function(it){return catalog.hasOwnProperty(it.name);}).map(function(it){
+      return {name:it.name,chapter:catalog[it.name].chapter,price:catalog[it.name].price,qty:qtyOf(it)};
+    });
+    persist();
+
     /* ---------- bar + panel ---------- */
     var root=document.createElement('div');
     root.className='db-root';
     root.innerHTML=
       '<div class="db-bar" role="button" tabindex="0" aria-label="View your basket">'+
         '<span class="db-bar-ic" aria-hidden="true">🪔</span>'+
-        '<span class="db-bar-txt"><b class="db-bar-n">0 pieces in your basket</b><em>Prices on request &mdash; we quote on WhatsApp</em></span>'+
+        '<span class="db-bar-txt"><b class="db-bar-n">0 pieces in your basket</b><em>Nothing is charged here &mdash; you order on WhatsApp</em></span>'+
         '<span class="db-bar-go">View &amp; Order</span>'+
       '</div>'+
       '<div class="db-overlay"></div>'+
@@ -178,6 +205,7 @@
         '<div class="db-head"><div><h4>Your Basket</h4><em>aapki diya basket</em></div>'+
         '<button type="button" class="db-close" aria-label="Close basket">&#10005;</button></div>'+
         '<ul class="db-list"></ul>'+
+        '<div class="db-total" hidden><span>Subtotal</span><b class="db-total-n"></b></div>'+
         '<p class="db-empty" hidden>Abhi khaali hai &mdash; tap <b>Add to Basket</b> on any piece you love.</p>'+
         '<a class="db-wa" href="#" target="_blank" rel="noopener">Enquire on WhatsApp &rarr;</a>'+
         '<button type="button" class="db-clear">Clear all</button>'+
@@ -188,7 +216,8 @@
         overlay=root.querySelector('.db-overlay'), panel=root.querySelector('.db-panel'),
         list=root.querySelector('.db-list'), empty=root.querySelector('.db-empty'),
         waBtn=root.querySelector('.db-wa'), clearBtn=root.querySelector('.db-clear'),
-        closeBtn=root.querySelector('.db-close');
+        closeBtn=root.querySelector('.db-close'),
+        totalRow=root.querySelector('.db-total'), totalN=root.querySelector('.db-total-n');
 
     /* desktop nav entry — the place people actually look for a cart */
     var navN=null;
@@ -207,16 +236,17 @@
 
     function waLink(){
       var lines=basket.map(function(it){
-        return '• '+it.name+(it.chapter?' ('+it.chapter+')':'');
+        var q=qtyOf(it);
+        return '• '+it.name+' × '+q+(it.price?' — '+rs(it.price*q):'')+(it.chapter?' ('+it.chapter+')':'');
       });
       return WA+encodeURIComponent(
-        "Namaste Sukoon! 🪔 I'd love to enquire about these from the Diwali'26 Collection:\n"+
-        lines.join('\n')+'\nThank you!');
+        "Namaste Sukoon! 🪔 I'd love to order these from the Diwali'26 Collection:\n"+
+        lines.join('\n')+'\nSubtotal: '+rs(subtotal())+'\nThank you!');
     }
 
     function render(){
-      var n=basket.length, isEmpty=n===0;
-      barN.textContent=n+(n===1?' piece':' pieces')+' in your basket';
+      var n=pieces(), isEmpty=basket.length===0;
+      barN.textContent=n+(n===1?' piece':' pieces')+' \u00B7 '+rs(subtotal());
       document.body.classList.toggle('db-bar-on',!isEmpty);
       if(navN){ navN.textContent=String(n); navN.classList.toggle('db-hide',isEmpty); }
 
@@ -237,14 +267,27 @@
         var nm=document.createElement('span'); nm.className='db-name'; nm.textContent=it.name;
         var ch=document.createElement('span'); ch.className='db-chap'; ch.textContent=it.chapter||'';
         info.appendChild(nm); info.appendChild(ch);
+        var q=qtyOf(it);
+        var qty=document.createElement('span'); qty.className='db-qty';
+        var minus=document.createElement('button'); minus.type='button'; minus.textContent='\u2212';
+        minus.setAttribute('aria-label','One less '+it.name); minus.disabled=q<=1;
+        var qn=document.createElement('b'); qn.textContent=String(q);
+        var plus=document.createElement('button'); plus.type='button'; plus.textContent='+';
+        plus.setAttribute('aria-label','One more '+it.name); plus.disabled=q>=99;
+        minus.addEventListener('click',function(ev){ ev.stopPropagation(); if(qtyOf(it)>1){ it.qty=qtyOf(it)-1; persist(); render(); } });
+        plus.addEventListener('click',function(ev){ ev.stopPropagation(); if(qtyOf(it)<99){ it.qty=qtyOf(it)+1; persist(); render(); } });
+        qty.appendChild(minus); qty.appendChild(qn); qty.appendChild(plus);
+        var amt=document.createElement('span'); amt.className='db-amt'; amt.textContent=it.price?rs(it.price*q):'';
         var rm=document.createElement('button');
         rm.type='button'; rm.className='db-remove'; rm.textContent='✕';
         rm.setAttribute('aria-label','Remove '+it.name);
         rm.addEventListener('click',function(){ basket.splice(i,1); persist(); render(); });
-        li.appendChild(info); li.appendChild(rm);
+        li.appendChild(info); li.appendChild(qty); li.appendChild(amt); li.appendChild(rm);
         list.appendChild(li);
       });
       empty.hidden=!isEmpty;
+      totalRow.hidden=isEmpty;
+      totalN.textContent=rs(subtotal());
       waBtn.style.display=isEmpty?'none':'flex';
       clearBtn.style.display=isEmpty?'none':'block';
       if(!isEmpty) waBtn.href=waLink();
@@ -284,7 +327,7 @@
           if(getComputedStyle(host).position==='static') host.style.position='relative';
           hintEl=document.createElement('span');
           hintEl.className='db-hint';
-          hintEl.textContent='Tap to add — we quote on WhatsApp';
+          hintEl.textContent='Tap to add — order on WhatsApp';
           host.appendChild(hintEl);
           setTimeout(dismissHint,6000);
         });

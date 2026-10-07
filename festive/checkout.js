@@ -85,6 +85,9 @@
   }
 
   /* ---------------- storage helpers ---------------- */
+  function qtyOf(it) { var q = parseInt(it.qty, 10); return q > 0 ? Math.min(q, 99) : 1; }
+  function rs(n) { return '\u20B9' + Number(n || 0).toLocaleString('en-IN'); }
+  function subtotal(items) { return items.reduce(function (t, it) { return t + (it.price || 0) * qtyOf(it); }, 0); }
   function readBasket() {
     try {
       var a = JSON.parse(localStorage.getItem(BASKET_KEY) || '[]');
@@ -134,8 +137,10 @@
     L.push('');
     L.push('*Items*');
     order.items.forEach(function (it, i) {
-      L.push((i + 1) + '. ' + it.name + (it.chapter ? ' (' + it.chapter + ')' : ''));
+      var q = qtyOf(it);
+      L.push((i + 1) + '. ' + it.name + ' × ' + q + (it.price ? ' — ' + rs(it.price * q) : '') + (it.chapter ? ' (' + it.chapter + ')' : ''));
     });
+    L.push('*Subtotal*: ' + rs(subtotal(order.items)));
     L.push('');
     L.push('*Deliver to*');
     L.push(order.name);
@@ -209,9 +214,10 @@
       '<h3>Place Your Order</h3>' +
       '<p class="ck-sub">Tell us where it should go. We\'ll confirm your total on WhatsApp and send a UPI link — nothing is charged here.</p>' +
       '<ul class="ck-items">' + items.map(function (it) {
-        return '<li>' + esc(it.name) + '<span>' + esc(it.chapter || '') + '</span></li>';
+        var q = qtyOf(it);
+        return '<li>' + esc(it.name) + ' × ' + q + '<span>' + (it.price ? rs(it.price * q) : esc(it.chapter || '')) + '</span></li>';
       }).join('') + '</ul>' +
-      '<p class="ck-por">Prices on request — we\'ll quote each piece when we confirm.</p>' +
+      '<p class="ck-por">Subtotal ' + rs(subtotal(items)) + ' — we\'ll confirm delivery and your SUKOON10 discount on WhatsApp.</p>' +
       field('name', 'Your name', 'text', '', 'autocomplete="name"') +
       field('phone', 'WhatsApp number', 'tel', '', 'inputmode="numeric" autocomplete="tel"') +
       field('address', 'Delivery address', 'textarea', 'Flat / house, street, area, landmark') +
@@ -354,7 +360,7 @@
       var p = document.createElement('p');
       p.className = 'ck-panel-note';
       p.style.cssText = 'font-family:Outfit,sans-serif;font-size:.64rem;color:#8B7355;text-align:center;margin:8px 0 0;line-height:1.5';
-      p.textContent = 'Prices on request — we quote on WhatsApp before anything is paid.';
+      p.textContent = 'Nothing is charged here — we confirm your total on WhatsApp before you pay.';
       panel.appendChild(p);
     }
     injectCSS();
