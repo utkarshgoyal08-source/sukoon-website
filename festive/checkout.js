@@ -150,8 +150,6 @@
     if (order.occasion) { L.push(''); L.push('*Occasion*: ' + order.occasion); }
     if (order.note) { L.push('*Gift note*: "' + order.note + '"'); }
     L.push('');
-    L.push('*Offer*: ' + OFFER_CODE + ' — 10% off first order above ₹999');
-    L.push('');
     L.push('Please confirm the total and share the UPI payment link. Dhanyavaad!');
     return L.join('\n');
   }
@@ -217,7 +215,7 @@
         var q = qtyOf(it);
         return '<li>' + esc(it.name) + ' × ' + q + '<span>' + (it.price ? rs(it.price * q) : esc(it.chapter || '')) + '</span></li>';
       }).join('') + '</ul>' +
-      '<p class="ck-por">Subtotal ' + rs(subtotal(items)) + ' — we\'ll confirm delivery and your SUKOON10 discount on WhatsApp.</p>' +
+      '<p class="ck-por">Subtotal ' + rs(subtotal(items)) + ' — we\'ll confirm delivery on WhatsApp.</p>' +
       field('name', 'Your name', 'text', '', 'autocomplete="name"') +
       field('phone', 'WhatsApp number', 'tel', '', 'inputmode="numeric" autocomplete="tel"') +
       field('address', 'Delivery address', 'textarea', 'Flat / house, street, area, landmark') +
